@@ -11,13 +11,13 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject justSphere;
     [SerializeField] private GameObject bulletHolder;
 
-    private int bulletSpeed = 50;
+    private int bulletSpeed = 150;
 
     private Quaternion bulletQuaternion;
     private Rigidbody rigidbodyComponent;
     private bool spaceKeyPressed;
     private float horizontalInput, verticalInput;
-    private int jumpScale;
+    public int jumpScale;
     private Vector2 mouseVector;
     private float mouseSensivity = 500;
     private bool run;
@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     public int maxNumberOfJumps;
     private int jumpsCount = 0;
     private float groundCheckSphereRadius = 0.1f;
+    public float runSpeed;
+    public float dashSpeed;
 
 
 
@@ -35,7 +37,7 @@ public class Player : MonoBehaviour
     void Start()
     {
       rigidbodyComponent = GetComponent<Rigidbody>();
-      jumpScale = 7;
+      
       Cursor.lockState = CursorLockMode.Locked;
     }
     
@@ -116,10 +118,14 @@ public class Player : MonoBehaviour
 
       Vector3 velocityBody = new Vector3(horizontalInput*3*verticalVelo, rigidbodyComponent.velocity.y*horizontalVelo, verticalInput*3*verticalVelo);
       velocityBody = transform.rotation *velocityBody;
-
-      if (run && ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1) || airDash) ){ //super dash possible
-        velocityBody.x *= 5;
-        velocityBody.z *= 5;
+      
+      if (run && (Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1)){ 
+        velocityBody.x *= runSpeed;
+        velocityBody.z *= runSpeed;
+        run = false;
+      }else if (run && airDash ){ 
+        velocityBody.x *= dashSpeed;
+        velocityBody.z *= dashSpeed;
         run = false;
       }
       
