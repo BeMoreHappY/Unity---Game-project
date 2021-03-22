@@ -42,9 +42,17 @@ public class Player : MonoBehaviour
     void OnGUI()
     {
       //TODO: DLACZEGO to się wykonuje aż dwa razy?
-
-
-      
+      //Dziwne, tutaj dobrze działa skakanie
+      Event e = Event.current;
+      if(e.control){
+        run = true;
+        
+        // w masce wszystko oprócz plajera
+        Debug.Log("Overlapping xD: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
+      }
+      if(Input.GetKeyDown(KeyCode.Space)){
+        spaceKeyPressed = true;
+      }
     }
 
     private void fireBullet(Quaternion bulletOrientation)
@@ -61,11 +69,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
-      
-      
-      
-      
+
       if (Input.GetMouseButtonDown(0))
       {
         fireBullet(bulletQuaternion);
@@ -89,6 +93,7 @@ public class Player : MonoBehaviour
       if(Input.GetKeyDown(KeyCode.Space)){
         spaceKeyPressed = true;
       }
+      
       
       //resetowanie przełączników
       if ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1))
@@ -127,7 +132,7 @@ public class Player : MonoBehaviour
 
       if(spaceKeyPressed){
         //Debug.Log("[JUMP] Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length);
-        //Debug.Log("Jumps: " + jumpsCount);
+        Debug.Log("Jumps: " + jumpsCount);
         
         rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
         spaceKeyPressed = false;
