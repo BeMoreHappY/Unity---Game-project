@@ -42,24 +42,13 @@ public class Player : MonoBehaviour
     void OnGUI()
     {
       //TODO: DLACZEGO to się wykonuje aż dwa razy?
-      
-      Event e = Event.current;
-      if(e.control){
-        run = true;
-        
-        // w masce wszystko oprócz plajera
-        Debug.Log("Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
-      }
-      if(Input.GetKeyDown(KeyCode.Space)){
-        spaceKeyPressed = true;
-      }
+
 
       
     }
 
     private void fireBullet(Quaternion bulletOrientation)
     {
-
       //Debug.Log("Shoot " +firstPersonCamera.transform.eulerAngles+", position: "+transform.position);
       GameObject bullet = Instantiate(justSphere) as GameObject;
       
@@ -67,12 +56,16 @@ public class Player : MonoBehaviour
       bullet.transform.position = bulletHolder.transform.position;
       
       bullet.GetComponent<Rigidbody>().velocity = bullet.transform.rotation * (new Vector3(0, 0, 1) * bulletSpeed);
-      
     }
 
     // Update is called once per frame
     void Update()
     {
+      
+      
+      
+      
+      
       if (Input.GetMouseButtonDown(0))
       {
         fireBullet(bulletQuaternion);
@@ -86,11 +79,22 @@ public class Player : MonoBehaviour
 
 
     private void FixedUpdate(){
+      Event e = Event.current;
+      if(e.control){
+        run = true;
+        
+        // w masce wszystko oprócz plajera
+        Debug.Log("Overlapping xD: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
+      }
+      if(Input.GetKeyDown(KeyCode.Space)){
+        spaceKeyPressed = true;
+      }
+      
       //resetowanie przełączników
       if ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1))
       {
         //jeśli stoję na ziemi
-        //na ścianie do biegania przecinam 2 collidery, chyba
+        //na ścianie do biegania przecinam 2 collidery, i raczej zostawić jak jest, bo trzeba się jeszcze odbić od ściany (pionowej części)
         multiJump = true;
         jumpsCount = 0;
       }
@@ -108,7 +112,7 @@ public class Player : MonoBehaviour
       Vector3 velocityBody = new Vector3(horizontalInput*3*verticalVelo, rigidbodyComponent.velocity.y*horizontalVelo, verticalInput*3*verticalVelo);
       velocityBody = transform.rotation *velocityBody;
 
-      if (run && ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1)) ){ //super dash possible
+      if (run && ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1) || airDash) ){ //super dash possible
         velocityBody.x *= 5;
         velocityBody.z *= 5;
         run = false;
@@ -123,7 +127,7 @@ public class Player : MonoBehaviour
 
       if(spaceKeyPressed){
         //Debug.Log("[JUMP] Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length);
-        Debug.Log("Jumps: " + jumpsCount);
+        //Debug.Log("Jumps: " + jumpsCount);
         
         rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
         spaceKeyPressed = false;
