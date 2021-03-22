@@ -23,6 +23,11 @@ public class Player : MonoBehaviour
     private bool run;
     private float horizontalVelo = 1;
     private float verticalVelo = 1;
+    public bool airDash = true;
+    public bool multiJump = true;
+    public int maxNumberOfJumps;
+    private int jumpsCount = 0;
+    private float groundCheckSphereRadius = 0.1f;
 
 
 
@@ -36,9 +41,14 @@ public class Player : MonoBehaviour
     
     void OnGUI()
     {
+      //TODO: DLACZEGO to się wykonuje aż dwa razy?
+      
       Event e = Event.current;
       if(e.control){
         run = true;
+        
+        // w masce wszystko oprócz plajera
+        Debug.Log("Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
       }
       if(Input.GetKeyDown(KeyCode.Space)){
         spaceKeyPressed = true;
@@ -76,6 +86,15 @@ public class Player : MonoBehaviour
 
 
     private void FixedUpdate(){
+      //resetowanie przełączników
+      if ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1))
+      {
+        //jeśli stoję na ziemi
+        //na ścianie do biegania przecinam 2 collidery, chyba
+        multiJump = true;
+        jumpsCount = 0;
+      }
+        
       //horizontal rotation of player >> causes camera rotation also
       transform.Rotate(0, mouseVector.x * Time.deltaTime * mouseSensivity, 0);
 
@@ -89,7 +108,7 @@ public class Player : MonoBehaviour
       Vector3 velocityBody = new Vector3(horizontalInput*3*verticalVelo, rigidbodyComponent.velocity.y*horizontalVelo, verticalInput*3*verticalVelo);
       velocityBody = transform.rotation *velocityBody;
 
-      if (run && ((Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 1))){ //super dash possible
+      if (run && ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1)) ){ //super dash possible
         velocityBody.x *= 5;
         velocityBody.z *= 5;
         run = false;
@@ -97,14 +116,24 @@ public class Player : MonoBehaviour
       
       //Debug.Log("body velocity: " + velocityBody+", magnitude:"+velocityBody.magnitude);
       rigidbodyComponent.velocity = velocityBody; //body speed vector that need's to be rotated by quaternion
-      
-      if(Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 0){
+
+      if((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 0) && (!multiJump)){
         return;
       }
 
       if(spaceKeyPressed){
+        //Debug.Log("[JUMP] Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length);
+        Debug.Log("Jumps: " + jumpsCount);
+        
         rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
         spaceKeyPressed = false;
+        jumpsCount++;
+
+        if (jumpsCount >= maxNumberOfJumps)
+        {
+          jumpsCount = 0;
+          multiJump = false;
+        }
       }
 
     }
