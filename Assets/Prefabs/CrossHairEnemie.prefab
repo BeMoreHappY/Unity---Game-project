@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2444994071915446497}
   - component: {fileID: 2444994071915446496}
   - component: {fileID: 2444994071915446508}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CrossHairEnemie
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -19,8 +19,9 @@ public class targetScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         int objectLayer = other.gameObject.layer;
-
-        if (other.gameObject.layer == 10){
+        
+        if (other.gameObject.layer == 12){
+            //ENEMY
             Destroy(this.gameObject);
         } 
     }

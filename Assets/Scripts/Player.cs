@@ -10,8 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Camera firstPersonCamera;
     [SerializeField] private GameObject justSphere;
     [SerializeField] private GameObject bulletHolder;
-    
-   
+
+    private int bulletSpeed = 50;
 
     private Quaternion bulletQuaternion;
     private Rigidbody rigidbodyComponent;
@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private Vector2 mouseVector;
     private float mouseSensivity = 500;
     private bool run;
+    private float horizontalVelo = 1;
+    private float verticalVelo = 1;
 
 
 
@@ -28,7 +30,7 @@ public class Player : MonoBehaviour
     void Start()
     {
       rigidbodyComponent = GetComponent<Rigidbody>();
-      jumpScale = 6;
+      jumpScale = 7;
       Cursor.lockState = CursorLockMode.Locked;
     }
     
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour
       bullet.transform.rotation = firstPersonCamera.transform.rotation;
       bullet.transform.position = bulletHolder.transform.position;
       
-      bullet.GetComponent<Rigidbody>().velocity = bullet.transform.rotation * (new Vector3(0, 0, 1) * 20);
+      bullet.GetComponent<Rigidbody>().velocity = bullet.transform.rotation * (new Vector3(0, 0, 1) * bulletSpeed);
       
     }
 
@@ -84,7 +86,7 @@ public class Player : MonoBehaviour
       bulletQuaternion = firstPersonCamera.transform.rotation;
       
 
-      Vector3 velocityBody = new Vector3(horizontalInput*3, rigidbodyComponent.velocity.y, verticalInput*3);
+      Vector3 velocityBody = new Vector3(horizontalInput*3*verticalVelo, rigidbodyComponent.velocity.y*horizontalVelo, verticalInput*3*verticalVelo);
       velocityBody = transform.rotation *velocityBody;
 
       if (run && ((Physics.OverlapSphere(groundCheckTransform.position, 0.1f, playerMask).Length == 1))){ //super dash possible
@@ -110,6 +112,25 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other){
       if (other.gameObject.layer == 9){
         Destroy(other.gameObject);
+        Debug.Log("Coin");
+      }
+      
+      if (other.gameObject.layer == 10)
+      {
+        horizontalVelo = 0.8f;
+        verticalVelo = 3.5f;
+        
+        Debug.Log("Spotkałeś się ze ścianą");
+      }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+      if (other.gameObject.layer == 10)
+      {
+        verticalVelo = 1;
+        horizontalVelo = 1;
+        Debug.Log("Rozstanie ze ścianą");
       }
     }
 /*
