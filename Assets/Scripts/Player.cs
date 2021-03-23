@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject justSphere;
     [SerializeField] private GameObject bulletHolder;
 
-    private int bulletSpeed = 150;
+    public int bulletSpeed = 1500;
 
     private Quaternion bulletQuaternion;
     private Rigidbody rigidbodyComponent;
@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
     private float groundCheckSphereRadius = 0.1f;
     public float runSpeed;
     public float dashSpeed;
+    private bool onTheWall = false;
 
 
 
@@ -98,9 +99,6 @@ public class Player : MonoBehaviour
 
 
     private void FixedUpdate(){
-      
-
-
       //resetowanie przełączników
       if ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1))
       {
@@ -130,6 +128,7 @@ public class Player : MonoBehaviour
       }else if (run && airDash ){ 
         velocityBody.x *= dashSpeed;
         velocityBody.z *= dashSpeed;
+        //velocityBody.y *= dashSpeed; //JUST FLY WHERE YOU WANT TO - trocha inaczej cza
         //run = false;
       }
       
@@ -143,21 +142,27 @@ public class Player : MonoBehaviour
       if(spaceKeyPressed){
         //Debug.Log("[JUMP] Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length);
         //Debug.Log("Jumps: " + jumpsCount);
-        
-        rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
-        spaceKeyPressed = false;
-        jumpsCount++;
 
-        if (jumpsCount >= maxNumberOfJumps)
-        {
-          jumpsCount = 0;
-          multiJump = false;
+        if (onTheWall){
+          Debug.Log("Jump Away the wall!");
+          
+        }else{
+          rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
+          spaceKeyPressed = false;
+          jumpsCount++;
+
+          if (jumpsCount >= maxNumberOfJumps)
+          {
+            jumpsCount = 0;
+            multiJump = false;
+          }
         }
       }
 
     }
 
     private void OnTriggerEnter(Collider other){
+      
       if (other.gameObject.layer == 9){
         Destroy(other.gameObject);
         Debug.Log("Coin");
@@ -167,8 +172,9 @@ public class Player : MonoBehaviour
       {
         horizontalVelo = 0.8f;
         verticalVelo = 3.5f;
-        
-        Debug.Log("Spotkałeś się ze ścianą");
+        onTheWall = true;
+
+        //Debug.Log("Spotkałeś się ze ścianą");
       }
     }
 
@@ -178,7 +184,8 @@ public class Player : MonoBehaviour
       {
         verticalVelo = 1;
         horizontalVelo = 1;
-        Debug.Log("Rozstanie ze ścianą");
+        onTheWall = false;
+        // Debug.Log("Rozstanie ze ścianą");
       }
     }
 /*

@@ -33,7 +33,7 @@ public class bulletScript : MonoBehaviour
         }
         else if (other.gameObject.layer == 11) {
             Destroy(this.gameObject);
-            Debug.Log("Zniszczono Cel!");
+            //Debug.Log("Zniszczono Cel!");
         }
     }
 }

@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class targetScript : MonoBehaviour
 {
+    private SferaPaczaniaCelu firstCollider;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        firstCollider = transform.Find("Pacze1").GetComponent<SferaPaczaniaCelu>();
+        firstCollider.OnTriggerEnter_Action += coJaPacze;
     }
 
     // Update is called once per frame
@@ -22,7 +25,13 @@ public class targetScript : MonoBehaviour
         
         if (other.gameObject.layer == 12){
             //ENEMY
-            Destroy(this.gameObject);
+            Debug.Log("Poszczelono mie!");
+            //Destroy(this.gameObject);
         } 
+    }
+
+    private void coJaPacze(Collider other)
+    {
+        Debug.Log("CO JA PACZE!!!");
     }
 }
