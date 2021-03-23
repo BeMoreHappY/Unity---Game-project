@@ -32,6 +32,6 @@ public class targetScript : MonoBehaviour
 
     private void coJaPacze(Collider other)
     {
-        Debug.Log("CO JA PACZE!!!");
+        //Debug.Log("CO JA PACZE!!!");
     }
 }

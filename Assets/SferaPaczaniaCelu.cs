@@ -12,8 +12,17 @@ public class SferaPaczaniaCelu : MonoBehaviour
  
     private void OnTriggerEnter(Collider other)
     {
-        sfera.radius++;
-        Debug.Log("Promień sfery: " + sfera.radius);
+        if (other.gameObject.layer == 12)
+        {
+            sfera.radius = 12;
+            Debug.Log("Promień: " + sfera.radius);
+        }
+
+        if (other.gameObject.layer == 14)
+        {
+            Debug.Log("Zauważono martwego kolegę " + other.gameObject.layer);
+        }
+        
         
         OnTriggerEnter_Action?.Invoke(other);
         
