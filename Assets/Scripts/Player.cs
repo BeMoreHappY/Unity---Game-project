@@ -45,13 +45,16 @@ public class Player : MonoBehaviour
     {
       //TODO: DLACZEGO to się wykonuje aż dwa razy?
       //Dziwne, tutaj dobrze działa skakanie
+      
+      /*
       Event e = Event.current;
       if(e.control){
         run = true;
         
         // w masce wszystko oprócz plajera
-        Debug.Log("Overlapping xD: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
-      }
+        //Debug.Log("Overlapping xD: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
+      } */
+      
       if(Input.GetKeyDown(KeyCode.Space)){
         spaceKeyPressed = true;
       }
@@ -71,7 +74,17 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+      if(Input.GetKeyDown(KeyCode.LeftControl)){
+        run = true;
+      }
+      
+      if(Input.GetKeyUp(KeyCode.LeftControl))
+      {
+        Debug.Log("CTRL up^");
+        run = false;
+      }
+      
+     
       if (Input.GetMouseButtonDown(0))
       {
         fireBullet(bulletQuaternion);
@@ -85,18 +98,9 @@ public class Player : MonoBehaviour
 
 
     private void FixedUpdate(){
-      Event e = Event.current;
-      if(e.control){
-        run = true;
-        
-        // w masce wszystko oprócz plajera
-        Debug.Log("Overlapping xD: " + Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length);
-      }
-      if(Input.GetKeyDown(KeyCode.Space)){
-        spaceKeyPressed = true;
-      }
       
-      
+
+
       //resetowanie przełączników
       if ((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1))
       {
@@ -122,11 +126,11 @@ public class Player : MonoBehaviour
       if (run && (Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 1)){ 
         velocityBody.x *= runSpeed;
         velocityBody.z *= runSpeed;
-        run = false;
+        //run = false;
       }else if (run && airDash ){ 
         velocityBody.x *= dashSpeed;
         velocityBody.z *= dashSpeed;
-        run = false;
+        //run = false;
       }
       
       //Debug.Log("body velocity: " + velocityBody+", magnitude:"+velocityBody.magnitude);
@@ -138,7 +142,7 @@ public class Player : MonoBehaviour
 
       if(spaceKeyPressed){
         //Debug.Log("[JUMP] Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length);
-        Debug.Log("Jumps: " + jumpsCount);
+        //Debug.Log("Jumps: " + jumpsCount);
         
         rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
         spaceKeyPressed = false;
