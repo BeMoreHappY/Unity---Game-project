@@ -58,6 +58,7 @@
      <Compile Include="Assets\MovementScript.cs" />
      <Compile Include="Assets\Scripts\EnemyAi.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
+     <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\bulletScript.cs" />
      <Compile Include="Assets\Scripts\targetScript.cs" />
      <Compile Include="Assets\SferaPaczaniaCelu.cs" />
