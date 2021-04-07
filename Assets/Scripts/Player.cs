@@ -34,6 +34,14 @@ public class Player : MonoBehaviour
     private bool onTheWall = false;
     public int healthPoints = 10;
     public Text healthIndicator;
+    
+    
+    //GUI: FPS
+    public Text fpsIndicator;
+    private float lastUpdateDTime = 0;
+    public float updatePeriod = 0.1f;
+    private int framesCount = 0;
+    
 
 
 
@@ -41,6 +49,8 @@ public class Player : MonoBehaviour
     void Start()
     {
       healthIndicator.text = "HP: " + healthPoints;
+      fpsIndicator.text = "FPS: " + 0;
+      
       rigidbodyComponent = GetComponent<Rigidbody>();
       
       Cursor.lockState = CursorLockMode.Locked;
@@ -80,6 +90,16 @@ public class Player : MonoBehaviour
     void Update()
     {
       healthIndicator.text = "HP: " + healthPoints;
+      
+
+      if (lastUpdateDTime < updatePeriod){
+        lastUpdateDTime += Time.deltaTime;
+        framesCount++;
+      }else{
+        fpsIndicator.text = "FPS: " + (int) (framesCount/lastUpdateDTime);
+        lastUpdateDTime = 0f;
+        framesCount = 0;
+      }
       
       if(Input.GetKeyDown(KeyCode.LeftControl)){
         run = true;
