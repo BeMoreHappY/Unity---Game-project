@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -31,12 +32,15 @@ public class Player : MonoBehaviour
     public float runSpeed;
     public float dashSpeed;
     private bool onTheWall = false;
+    public int healthPoints = 10;
+    public Text healthIndicator;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+      healthIndicator.text = "HP: " + healthPoints;
       rigidbodyComponent = GetComponent<Rigidbody>();
       
       Cursor.lockState = CursorLockMode.Locked;
@@ -75,6 +79,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      healthIndicator.text = "HP: " + healthPoints;
+      
       if(Input.GetKeyDown(KeyCode.LeftControl)){
         run = true;
       }
