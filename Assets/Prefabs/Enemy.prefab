@@ -122,10 +122,11 @@ MonoBehaviour:
   walkPointRange: 100
   timeBetweenAttacks: 2
   bullet: {fileID: 8637016166147384034, guid: 0f8e277194b7aa89f9f5f8a1926f4b07, type: 3}
-  sightRange: 50
+  sightRange: 25
   attackRange: 2
   isSight: 1
   isAttack: 1
+  sawBullet: 0
 --- !u!195 &8946167082550493777
 NavMeshAgent:
   m_ObjectHideFlags: 0

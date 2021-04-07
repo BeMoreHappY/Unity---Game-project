@@ -24,7 +24,7 @@ public class EnemyAi : MonoBehaviour
 
     //States
     public float sightRange, attackRange;
-    public bool isSight, isAttack;
+    public bool isSight, isAttack, sawBullet;
 
     private void Awake()
     {
@@ -37,9 +37,12 @@ public class EnemyAi : MonoBehaviour
         //Check for sight and attack range
         isSight = Physics.CheckSphere(transform.position, sightRange, Player);
         isAttack = Physics.CheckSphere(transform.position, attackRange, Player);
+        //sawBullet = Physics.CheckSphere(transform.position, attackRange, 12); //bullet LayerMask
+        
 
         if (!isSight && !isAttack) Patroling();
         if (isSight && !isAttack) ChasePlayer();
+        //if (sawBullet) ChasePlayer();
         if (isAttack && isSight) AttackPlayer();
     }
 
