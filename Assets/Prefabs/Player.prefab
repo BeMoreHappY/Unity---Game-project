@@ -160,6 +160,20 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 55
+  firstPersonCamera: {fileID: 0}
+  justSphere: {fileID: 0}
+  bulletHolder: {fileID: 0}
+  bulletSpeed: 1000
+  jumpScale: 0
+  airDash: 1
+  multiJump: 1
+  maxNumberOfJumps: 0
+  runSpeed: 0
+  dashSpeed: 0
+  healthPoints: 10
+  healthIndicator: {fileID: 0}
+  fpsIndicator: {fileID: 0}
+  updatePeriod: 0.1
 --- !u!1 &1022389915994350517
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject justSphere;
     [SerializeField] private GameObject bulletHolder;
 
-    public int bulletSpeed = 1500;
+    public float bulletSpeed = 1500;
 
     private Quaternion bulletQuaternion;
     private Rigidbody rigidbodyComponent;
@@ -83,7 +83,8 @@ public class Player : MonoBehaviour
       bullet.transform.rotation = firstPersonCamera.transform.rotation;
       bullet.transform.position = bulletHolder.transform.position;
       
-      bullet.GetComponent<Rigidbody>().velocity = bullet.transform.rotation * (new Vector3(0, 0, 1) * bulletSpeed);
+      bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.rotation * (new Vector3(0,0,1)) *bulletSpeed);
+      //bullet.transform.rotation * (new Vector3(0, 0, 1) * bulletSpeed *Time.deltaTime);
     }
 
     // Update is called once per frame
