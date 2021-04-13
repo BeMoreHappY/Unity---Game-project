@@ -13,7 +13,7 @@ public class bulletScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        Destroy(this.gameObject, 5);
     }
 
     private void FixedUpdate()
@@ -21,19 +21,11 @@ public class bulletScript : MonoBehaviour
         
     }
     
-    private void OnTriggerEnter(Collider other)
+     void OnTriggerEnter(Collider Enemy){
+    if(Enemy.gameObject.CompareTag("enemy"))
     {
-        int objectLayer = other.gameObject.layer;
-        //Debug.Log("XD "+objectLayer);
-        
-        if (other.gameObject.layer == 8){
-            
-        } else if (other.gameObject.layer == 9){
-            
-        }
-        else if (other.gameObject.layer == 11) {
-            Destroy(this.gameObject);
-            //Debug.Log("Zniszczono Cel!");
-        }
+        Enemy.gameObject.SendMessage("OnDamage");
+        Destroy(this.gameObject);
+    }
     }
 }

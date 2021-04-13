@@ -139,6 +139,7 @@ public class Player : MonoBehaviour
 
       //vertical camera rotation
       Vector3 cameraAngles = firstPersonCamera.transform.rotation.eulerAngles;
+      mouseVector.y = Mathf.Clamp(mouseVector.y, -90f, 90f);
       firstPersonCamera.transform.Rotate(-mouseVector.y*Time.deltaTime*mouseSensivity*0.3f, 0, 0);
 
       bulletQuaternion = firstPersonCamera.transform.rotation;

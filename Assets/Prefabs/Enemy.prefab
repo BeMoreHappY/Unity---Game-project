@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8946167082550493777}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   timeBetweenAttacks: 2
   bullet: {fileID: 8637016166147384034, guid: 0f8e277194b7aa89f9f5f8a1926f4b07, type: 3}
   sightRange: 25
-  attackRange: 2
+  attackRange: 10
   isSight: 1
   isAttack: 1
   sawBullet: 0
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 8946167083234138717}
   m_Layer: 0
   m_Name: Eyes
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
