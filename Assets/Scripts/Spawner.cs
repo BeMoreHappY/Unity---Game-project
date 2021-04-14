@@ -17,9 +17,9 @@ public class Spawner : MonoBehaviour
     void Start()
     {
         fala = 1;
-        spawn(0,1,1);
-        spawn(1,1,1);
-        spawn(2,1,1);
+        spawn(0,1,0);
+        spawn(1,1,0);
+        spawn(2,1,0);
         enemies = 3;
 
     }
@@ -27,12 +27,24 @@ public class Spawner : MonoBehaviour
     void fale(){
         fala ++;
         if (fala==2){
-            spawn(0,1,1);
-            spawn(1,1,1);
-            spawn(2,1,1);
-            spawn(3,0,0);
-            spawn(4,0,0);
-            spawn(5,0,0);
+            spawn(0,1,0);
+            spawn(1,1,0);
+            spawn(2,1,0);
+            spawn(3,0,1);
+            spawn(4,0,1);
+            spawn(5,0,1);
+        }
+        if (fala==3){
+            spawn(0,1,0);
+            spawn(1,1,0);
+            spawn(2,1,0);
+            spawn(3,0,1);
+            spawn(4,0,1);
+            spawn(5,0,1);
+            spawn(6,2,2);
+            spawn(7,2,2);
+            spawn(8,2,2);
+
         }
 
     }
@@ -46,6 +58,6 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemies == 0) fale();
+        if (enemies == 0) Invoke("fale",6);
     }
 }
