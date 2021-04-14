@@ -37,7 +37,7 @@ public class Spawner : MonoBehaviour
 
     }
 
-    void enemyDied(){
+    public void enemyDied(){
         enemies--;
     }
 

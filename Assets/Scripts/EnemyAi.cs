@@ -12,8 +12,8 @@ public class EnemyAi : MonoBehaviour
 
     public float health;
 
-    public GameObject go = GameObject.Find("GameObject (Spawner)");
-    public Spawner spawn = (Spawner) go.GetComponent(typeof(Spawner));
+    public GameObject go;
+    public Spawner spawn;
 
     //Patroling
     public Vector3 walkPoint;
@@ -31,7 +31,8 @@ public class EnemyAi : MonoBehaviour
 
     private void Start()
     {
-        public Spawner spawn = (Spawner) go.GetComponent(typeof(Spawner));
+        go = GameObject.Find("GameObject (Spawner)");
+        spawn = (Spawner) go.GetComponent(typeof(Spawner));
     }
     
         
@@ -124,7 +125,7 @@ public class EnemyAi : MonoBehaviour
     void OnDamage(){
     health -= 30;
     if (health <= 0) {
-        spawner.enemyDied();
+        spawn.enemyDied();
         DestroyEnemy();
     }
     Debug.Log("HIT!");
