@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -91,6 +92,14 @@ public class Player : MonoBehaviour
     void Update()
     {
       healthIndicator.text = "HP: " + healthPoints;
+
+      if (Input.GetKeyDown(KeyCode.Escape))
+      {
+        Debug.Log("ESCAPE!!!!");
+        Time.timeScale = 0;
+        SceneManager.LoadScene(2);
+        Cursor.lockState = CursorLockMode.Confined;
+      }
       
 
       if (lastUpdateDTime < updatePeriod){
