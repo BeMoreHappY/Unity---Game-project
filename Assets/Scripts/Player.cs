@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
     private bool onTheWall = false;
     public int healthPoints = 10;
     public Text healthIndicator;
-    
+    public GameObject pausePanel;
+    public GameObject UiPlayer;
     
     //GUI: FPS
     public Text fpsIndicator;
@@ -97,7 +98,8 @@ public class Player : MonoBehaviour
       {
         Debug.Log("ESCAPE!!!!");
         Time.timeScale = 0;
-        SceneManager.LoadScene(2);
+        pausePanel.SetActive(true);
+        UiPlayer.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
       }
       
@@ -224,6 +226,14 @@ public class Player : MonoBehaviour
         onTheWall = false;
         // Debug.Log("Rozstanie ze ścianą");
       }
+    }
+    public void ResumeGame()
+    {
+      Time.timeScale = 1;
+      pausePanel.SetActive(false);
+      UiPlayer.SetActive(true);
+      Cursor.lockState = CursorLockMode.Locked;
+
     }
 /*
     private void OnCollisionEnter(Collider collider){
