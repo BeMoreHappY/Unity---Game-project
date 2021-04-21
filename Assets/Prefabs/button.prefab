@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3371695045913428435}
   - component: {fileID: 3371695045913428463}
   - component: {fileID: 3371695045913428460}
-  - component: {fileID: 3371695045913428462}
   m_Layer: 5
   m_Name: button
   m_TagString: Untagged
@@ -244,23 +243,6 @@ MonoBehaviour:
   myFX: {fileID: 3371695045913428463}
   hoverFX: {fileID: 8300000, guid: 037aa3728dd6b89ce9c105a020dc3bb0, type: 3}
   clickFX: {fileID: 8300000, guid: b99bd03ee9163557788485104e21579a, type: 3}
---- !u!114 &3371695045913428462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3371695045913428433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!1 &3371695046379912151
 GameObject:
   m_ObjectHideFlags: 0
