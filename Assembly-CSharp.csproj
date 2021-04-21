@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\targetScript.cs" />
      <Compile Include="Assets\SferaPaczaniaCelu.cs" />
      <Compile Include="Assets\buttonFX.cs" />
+     <Compile Include="Assets\buttonManager.cs" />
  <Reference Include="UnityEngine">
  <HintPath>/home/andrzej/Unity/Hub/Editor/2019.4.21f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>
