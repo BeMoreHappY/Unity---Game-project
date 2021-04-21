@@ -118,10 +118,12 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   health: 100
+  go: {fileID: 0}
+  spawn: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 100
   timeBetweenAttacks: 2
-  bullet: {fileID: 8637016166147384034, guid: 0f8e277194b7aa89f9f5f8a1926f4b07, type: 3}
+  bullet: {fileID: 8637016166147384034, guid: 11d89a372d6c6ff4e808deacc7ade3d0, type: 3}
   sightRange: 25
   attackRange: 10
   isSight: 1

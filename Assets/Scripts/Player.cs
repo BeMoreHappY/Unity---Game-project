@@ -33,10 +33,13 @@ public class Player : MonoBehaviour
     public float runSpeed;
     public float dashSpeed;
     private bool onTheWall = false;
-    public int healthPoints = 10;
-    public Text healthIndicator;
+    public int maxHealth;
+    private int currentHealth;
+
     public GameObject pausePanel;
     public GameObject UiPlayer;
+
+    public HealthBar healthBar;
     
     //GUI: FPS
     public Text fpsIndicator;
@@ -50,7 +53,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      healthIndicator.text = "HP: " + healthPoints;
+      currentHealth = maxHealth;
+      healthBar.MaxHealth(currentHealth);
       fpsIndicator.text = "FPS: " + 0;
       
       rigidbodyComponent = GetComponent<Rigidbody>();
@@ -92,8 +96,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      healthIndicator.text = "HP: " + healthPoints;
-
       if (Input.GetKeyDown(KeyCode.Escape))
       {
         Debug.Log("ESCAPE!!!!");
@@ -234,6 +236,13 @@ public class Player : MonoBehaviour
       UiPlayer.SetActive(true);
       Cursor.lockState = CursorLockMode.Locked;
 
+    }
+    void OnDamage()
+    {
+      currentHealth -= 10;
+      healthBar.SetHealth(currentHealth);
+      Debug.Log("Auc!");
+      Debug.Log(currentHealth);
     }
 /*
     private void OnCollisionEnter(Collider collider){

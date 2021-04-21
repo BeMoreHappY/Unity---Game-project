@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 
-public class bulletScript : MonoBehaviour
+public class BulletScriptEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -25,7 +25,7 @@ public class bulletScript : MonoBehaviour
     }
     
     void OnTriggerEnter(Collider Enemy){
-        if(Enemy.gameObject.CompareTag("enemy"))
+        if(Enemy.gameObject.CompareTag("Player"))
         {
             Enemy.gameObject.SendMessage("OnDamage");
             Destroy(this.gameObject);
