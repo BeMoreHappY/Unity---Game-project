@@ -12066,8 +12066,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 437, y: 278}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 445.5, y: 286}
+  m_SizeDelta: {x: 237.74475, y: 39.902527}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &210616931
 MonoBehaviour:
@@ -12095,7 +12095,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 219
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -45520,7 +45520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &542491673
 RectTransform:
   m_ObjectHideFlags: 0
@@ -50369,6 +50369,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -50924,6 +50929,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -52698,6 +52708,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -58033,6 +58048,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -75048,6 +75068,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -79531,6 +79556,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -86411,6 +86441,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -87111,6 +87146,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -88443,6 +88483,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -95160,6 +95205,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1064281067}
+    - target: {fileID: 2597883156089852299, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
+        type: 3}
+      propertyPath: skillPointsTextUI
+      value: 
+      objectReference: {fileID: 210616929}
     - target: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_Pivot.x
@@ -95519,6 +95569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: placeHolder
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022389915548557690, guid: eef3c10c56019872e8a785285352913f,
+        type: 3}
+      propertyPath: skillPoints
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1022389915548557690, guid: eef3c10c56019872e8a785285352913f,
         type: 3}

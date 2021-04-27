@@ -10,6 +10,8 @@ public class buttonManager : MonoBehaviour
 {
 	public GameObject player;
 	public GameObject skillPointsTextUI;
+	public GameObject nextButton;
+
     private Color selectedColor = new Color(0.984f, 0.933f, 0.094f, 1f);
     private Color unselectedColor = new Color(0.105f, 0.952f, 0.952f, 0.6f);
     
@@ -57,11 +59,21 @@ public class buttonManager : MonoBehaviour
 			player.GetComponent<Player>().skillPoints--;
 
 			updateUI();
+			activateNextButton();
 		}else{
 			Debug.Log("I co tera? Punkta brak!");
 		}
 
     }
+
+	public void	activateNextButton(){
+		try{
+			nextButton.GetComponent<Button>().interactable = true;
+	
+		}catch(Exception e){
+			//Debug.Log("Ni mo komponentu SKILL POINTS TEXT w UI");
+		}
+	}
 
 
 	public void updateUI(){
