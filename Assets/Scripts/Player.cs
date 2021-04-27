@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
     private float verticalVelo = 1;
     public bool airDash = true;
     public bool multiJump = true;
-    public int maxNumberOfJumps;
+    public int maxNumberOfJumps = 0;
     private int jumpsCount = 0;
     private float groundCheckSphereRadius = 0.1f;
     public float runSpeed;
@@ -61,7 +61,13 @@ public class Player : MonoBehaviour
       
       Cursor.lockState = CursorLockMode.Locked;
     }
-    
+
+	public void skillsTreeButtonsAction(){
+		Debug.Log("Łokieć pięta i nie ma klienta");
+		maxNumberOfJumps = 2;
+		
+	}
+   
     void OnGUI()
     {
       //TODO: DLACZEGO to się wykonuje aż dwa razy?
@@ -177,12 +183,13 @@ public class Player : MonoBehaviour
       rigidbodyComponent.velocity = velocityBody; //body speed vector that need's to be rotated by quaternion
 
       if((Physics.OverlapSphere(groundCheckTransform.position, groundCheckSphereRadius, playerMask).Length == 0) && (!multiJump)){
+		//Debug.Log("Jesteś w powietrzu i skończył się multijump");
         return;
       }
 
       if(spaceKeyPressed){
         //Debug.Log("[JUMP] Overlapping: " + Physics.OverlapSphere(groundCheckTransform.position, 0.3f, playerMask).Length);
-        //Debug.Log("Jumps: " + jumpsCount);
+        
 
         if (onTheWall){
           Debug.Log("Jump Away the wall!");
@@ -191,13 +198,17 @@ public class Player : MonoBehaviour
           rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
           spaceKeyPressed = false;
           jumpsCount++;
+		  //Debug.Log("Jumps: " + jumpsCount);
 
           if (jumpsCount >= maxNumberOfJumps)
           {
             jumpsCount = 0;
             multiJump = false;
+			
           }
         }
+
+		
       }
 
     }
