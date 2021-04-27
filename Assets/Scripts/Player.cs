@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 
     public GameObject pausePanel;
     public GameObject UiPlayer;
+    public GameObject weaponPanel;
 
     public HealthBar healthBar;
     
@@ -151,13 +152,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if (Input.GetKeyDown(KeyCode.Escape))
-      {
+      if (Input.GetKeyDown(KeyCode.Escape)){
         Debug.Log("ESCAPE!!!!");
         Time.timeScale = 0;
         pausePanel.SetActive(true);
         UiPlayer.SetActive(false);
         Cursor.lockState = CursorLockMode.Confined;
+        
+      }else if (Input.GetKeyDown(KeyCode.Q)){
+	      Debug.Log("Q");
+	      Time.timeScale = 0;
+	      weaponPanel.SetActive(true);
+	      UiPlayer.SetActive(false);
+	      Cursor.lockState = CursorLockMode.None;   
       }
       
 
