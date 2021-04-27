@@ -21,11 +21,15 @@ public class buttonManager : MonoBehaviour
     public void setSelected()
     {
 		string buttonName = gameObject.name;
-		if(buttonName.Equals("WallRun")){
-			player.GetComponent<Player>().skillsTreeButtonsAction();
-		}
-	    
+		int skillID = 0;
 
+		if(buttonName.Equals("DoubleJump")){
+			skillID = 0;
+		}else if(buttonName.Equals("TripleJump")){
+			skillID = 1;
+		}
+
+		player.GetComponent<Player>().skillsTreeButtonsAction(skillID);
         GetComponent<Image>().color = selectedColor;
     }
 }

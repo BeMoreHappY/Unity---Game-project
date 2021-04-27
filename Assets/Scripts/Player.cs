@@ -62,9 +62,26 @@ public class Player : MonoBehaviour
       Cursor.lockState = CursorLockMode.Locked;
     }
 
-	public void skillsTreeButtonsAction(){
-		Debug.Log("Łokieć pięta i nie ma klienta");
-		maxNumberOfJumps = 2;
+	public void skillsTreeButtonsAction(int buttonID){
+		/* 
+		* 0 - Double Jump;
+		* 1 - Triple Jump;
+		*/
+
+		switch(buttonID){
+			case 0:
+				maxNumberOfJumps = 2;
+				Debug.Log("Double Jump activated");
+				break;
+
+			case 1:
+				maxNumberOfJumps = 3;
+				Debug.Log("Triple Jump activated");
+				break;
+
+		}
+
+	
 		
 	}
    
