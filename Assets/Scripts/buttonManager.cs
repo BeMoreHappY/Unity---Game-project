@@ -31,5 +31,6 @@ public class buttonManager : MonoBehaviour
 
 		player.GetComponent<Player>().skillsTreeButtonsAction(skillID);
         GetComponent<Image>().color = selectedColor;
+		GetComponent<Button>().interactable = false;
     }
 }
