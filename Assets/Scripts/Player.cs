@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     private bool onTheWall = false;
     public int maxHealth;
     private int currentHealth;
+	public int skillPoints = 5;
 
     public GameObject pausePanel;
     public GameObject UiPlayer;
@@ -66,6 +67,14 @@ public class Player : MonoBehaviour
 		/* 
 		* 0 - Double Jump;
 		* 1 - Triple Jump;
+		* 2 - Wall Run;
+		* 3 - Wall Run - 5%G;
+		* 4 - Wall Run - 5%G01;
+		* 5 - Wall Run - 5%G02;
+		* 6 - Air Dash;
+		* 7 - Air Dash - 5%G;
+		* 8 - Air Dash - 5%G01;
+		* 9 - Air Dash - 5%G02;
 		*/
 
 		switch(buttonID){
@@ -73,10 +82,33 @@ public class Player : MonoBehaviour
 				maxNumberOfJumps = 2;
 				Debug.Log("Double Jump activated");
 				break;
-
 			case 1:
 				maxNumberOfJumps = 3;
 				Debug.Log("Triple Jump activated");
+				break;
+			case 2:
+				Debug.Log("Wall Run activated");
+				break;
+			case 3:
+				Debug.Log("Wall Run - 5%G activated");
+				break;
+			case 4:
+				Debug.Log("Wall Run - 5%G01 activated");
+				break;
+			case 5:
+				Debug.Log("Wall Run - 5%G02 activated");
+				break;
+			case 6:
+				Debug.Log("Air Dash activated");
+				break;
+			case 7:
+				Debug.Log("Air Dash -5%G activated");
+				break;
+			case 8:
+				Debug.Log("Air Dash -5%G01 activated");
+				break;
+			case 9:
+				Debug.Log("Air Dash -5%G02 activated");
 				break;
 
 		}
