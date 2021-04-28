@@ -117,6 +117,36 @@ public class Player : MonoBehaviour
 	
 		
 	}
+
+	public void weaponChoosePanelAction(int buttonID)
+	{
+		switch (buttonID)
+		{
+			case 0:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 1:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 2:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 3:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 4:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 5:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 6:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+		}
+
+		ResumeGame();
+	}
    
     void OnGUI()
     {
@@ -300,6 +330,7 @@ public class Player : MonoBehaviour
     {
       Time.timeScale = 1;
       pausePanel.SetActive(false);
+      weaponPanel.SetActive(false);
       UiPlayer.SetActive(true);
       Cursor.lockState = CursorLockMode.Locked;
 
