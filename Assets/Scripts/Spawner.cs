@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour
     public GameObject[] whatToSpawnClone;
     private int fala;
     public int enemies;
+    public int points;
     void spawn(int n=0, int k=0, int l=0){
         whatToSpawnClone[n] = Instantiate(whatToSpawnPrefab[k],spawnLocations[l].transform.position, Quaternion.Euler(0,0,0)) as GameObject;
     }
@@ -16,6 +17,7 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        points=0;
         fala = 1;
         spawn(0,1,0);
         spawn(1,1,0);
@@ -50,6 +52,7 @@ public class Spawner : MonoBehaviour
     }
 
     public void enemyDied(){
+        points+=50;
         enemies--;
     }
 
