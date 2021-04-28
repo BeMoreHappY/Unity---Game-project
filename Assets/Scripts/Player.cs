@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
 				break;
 		}
 
-		ResumeGame();
+		
 	}
    
     void OnGUI()
@@ -196,7 +196,11 @@ public class Player : MonoBehaviour
 	      UiPlayer.SetActive(false);
 	      Cursor.lockState = CursorLockMode.None;   
       }
-      
+
+      if (Input.GetKeyUp(KeyCode.Q))
+      {
+	      ResumeGame();
+      }
 
       if (lastUpdateDTime < updatePeriod){
         lastUpdateDTime += Time.deltaTime;
