@@ -36,7 +36,7 @@ public class Spawner : MonoBehaviour
             spawn(4,0,1);
             spawn(5,0,1);
         }
-        if (fala==3){
+        else if (fala==3){
             spawn(0,1,0);
             spawn(1,1,0);
             spawn(2,1,0);
@@ -48,7 +48,56 @@ public class Spawner : MonoBehaviour
             spawn(8,2,2);
 
         }
-
+         else if (fala==4){
+            spawn(0,1,0);
+            spawn(1,1,0);
+            spawn(2,1,0);
+            spawn(3,0,1);
+            spawn(4,0,1);
+            spawn(5,0,1);
+            spawn(6,2,2);
+            spawn(7,2,2);
+            spawn(8,2,2);
+            System.Threading.Thread.Sleep(5000);
+            spawn(9,1,0);
+            spawn(10,1,0);
+            spawn(11,0,1);
+            spawn(12,0,1);
+            spawn(13,0,1);
+        }
+        else if (fala==5){
+            spawn(0,1,0);
+            spawn(1,1,0);
+            spawn(2,1,0);
+            spawn(3,0,1);
+            spawn(4,0,1);
+            spawn(5,0,1);
+            spawn(6,2,2);
+            spawn(7,2,2);
+            spawn(8,2,2);
+            System.Threading.Thread.Sleep(5000);
+            spawn(9,1,0);
+            spawn(10,1,0);
+            spawn(11,0,1);
+            spawn(12,0,1);
+            spawn(13,0,1);
+            spawn(14,0,1);
+            spawn(15,2,2);
+            spawn(16,2,2);
+            spawn(17,2,2);
+            System.Threading.Thread.Sleep(1500);
+            spawn(18,3,3);
+            spawn(19,3,3);
+            spawn(20,3,3);
+            spawn(21,3,3);
+            spawn(22,3,3);
+            spawn(23,3,3);
+            spawn(24,3,3);
+            spawn(25,3,3);
+            spawn(26,3,3);
+            spawn(27,3,3);
+            
+        }
     }
 
     public void enemyDied(){
