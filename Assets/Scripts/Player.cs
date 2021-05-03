@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject justSphere;
     [SerializeField] private GameObject bulletHolder;
 
+
     public float bulletSpeed = 1500;
 
     private Quaternion bulletQuaternion;
@@ -318,6 +319,7 @@ public class Player : MonoBehaviour
 
         //Debug.Log("Spotkałeś się ze ścianą");
       }
+
     }
 
     private void OnTriggerExit(Collider other)
@@ -329,6 +331,7 @@ public class Player : MonoBehaviour
         onTheWall = false;
         // Debug.Log("Rozstanie ze ścianą");
       }
+
     }
     public void ResumeGame()
     {
@@ -346,6 +349,9 @@ public class Player : MonoBehaviour
       Debug.Log("Auc!");
       Debug.Log(currentHealth);
     }
+
+    
+
 /*
     private void OnCollisionEnter(Collider collider){
 
