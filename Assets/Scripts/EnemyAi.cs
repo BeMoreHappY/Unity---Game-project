@@ -14,6 +14,7 @@ public class EnemyAi : MonoBehaviour
 
     public GameObject go;
     public Spawner spawn;
+    private bool active;
 
     //Patroling
     public Vector3 walkPoint;
@@ -24,13 +25,17 @@ public class EnemyAi : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject bullet;
+    private Rigidbody rigibody;
 
     //States
     public float sightRange, attackRange;
     public bool isSight, isAttack, sawBullet;
+    public float impactForce;
 
     private void Start()
     {
+        active = true;
+        rigibody = GetComponent<Rigidbody>();
         go = GameObject.Find("GameObject (Spawner)");
         spawn = (Spawner) go.GetComponent(typeof(Spawner));
     }
@@ -129,4 +134,36 @@ public class EnemyAi : MonoBehaviour
     }
     Debug.Log("HIT!");
   }
+  public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0f)
+        {
+            spawn.enemyDied();
+            DestroyEnemy();
+        }
+    }
+    public void impact(Vector3 kierunek)
+    {
+        rigibody.AddForce(kierunek * impactForce);
+    }
+    public void agentStop()
+    {
+        
+        agent.Stop();
+        active = false;
+        rigibody.isKinematic = false;
+    }
+    public void agentStart()
+    {
+       
+        agent.Resume();
+        active = true;
+        walkPointSet = false;
+        rigibody.isKinematic = true;
+    }
+    public bool isActive()
+    {
+        return active;
+    }
 }

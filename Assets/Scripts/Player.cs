@@ -223,10 +223,10 @@ public class Player : MonoBehaviour
       }
       
      
-      if (Input.GetMouseButtonDown(0))
-      {
-        fireBullet(bulletQuaternion);
-      }
+      // if (Input.GetMouseButtonDown(0))
+      // {
+      //   fireBullet(bulletQuaternion);
+      // }
       
       horizontalInput = Input.GetAxis("Horizontal");
       verticalInput = Input.GetAxis("Vertical");
@@ -286,6 +286,7 @@ public class Player : MonoBehaviour
           Debug.Log("Jump Away the wall!");
           
         }else{
+          Debug.Log("JUMP!");
           rigidbodyComponent.AddForce(Vector3.up*jumpScale, ForceMode.VelocityChange);
           spaceKeyPressed = false;
           jumpsCount++;
