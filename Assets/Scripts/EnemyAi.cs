@@ -20,6 +20,7 @@ public class EnemyAi : MonoBehaviour
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
+    public float bulletSpeed;
 
     //Attacking
     public float timeBetweenAttacks;
@@ -59,7 +60,24 @@ public class EnemyAi : MonoBehaviour
         if (!isSight && !isAttack) Patroling();
         if (isSight && !isAttack) ChasePlayer();
         //if (sawBullet) ChasePlayer();
-        if (isAttack && isSight) AttackPlayer();
+        RaycastHit hit;
+        if (isAttack && isSight)
+        {
+            if (Physics.Raycast(transform.position, transform.forward,out hit, attackRange))
+            {
+                if (hit.collider.gameObject.CompareTag("Player"))
+                {
+                    AttackPlayer();
+                }
+                if (hit.collider.gameObject.CompareTag("enemy"))
+                {
+                    ChasePlayer();
+                }
+            }
+            else{
+                ChasePlayer();
+            }
+        }
     }
 
     private void Patroling()
@@ -94,6 +112,7 @@ public class EnemyAi : MonoBehaviour
 
     private void AttackPlayer()
     {
+        
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
@@ -103,7 +122,7 @@ public class EnemyAi : MonoBehaviour
         {
             ///Attack code here
             Rigidbody rb = Instantiate(bullet, agent.transform.position + agent.transform.forward, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 16f, ForceMode.Impulse);
+            rb.AddForce(rb.transform.rotation * agent.transform.forward * bulletSpeed);
             ///End of attack code
 
             alreadyAttacked = true;
@@ -150,14 +169,14 @@ public class EnemyAi : MonoBehaviour
     public void agentStop()
     {
         
-        agent.Stop();
+        agent.isStopped = true;
         active = false;
         rigibody.isKinematic = false;
     }
     public void agentStart()
     {
        
-        agent.Resume();
+        agent.isStopped = false;
         active = true;
         walkPointSet = false;
         rigibody.isKinematic = true;

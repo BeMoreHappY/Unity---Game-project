@@ -8,12 +8,15 @@ public class GunScript : MonoBehaviour
     public Camera fpscam;
     public ParticleSystem muzzleflash;
     public float damage = 10f;
+    private float nextTimeToFire = 0f;
+    public float fireRate = 15f;
     
     
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
         {
+            nextTimeToFire = Time.time + 1f/fireRate;
             Shoot();
         }
     }
@@ -24,7 +27,6 @@ public class GunScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(fpscam.transform.position, fpscam.transform.forward, out hit))
         {
-            Debug.Log(hit.transform.name);
             EnemyAi target = hit.transform.GetComponent<EnemyAi>();
             if (target != null)
             {
@@ -34,9 +36,7 @@ public class GunScript : MonoBehaviour
             {
                 if (target.isActive()) target.agentStop();
                 target.impact(-hit.normal);
-                target.Invoke("agentStart", 1f); 
-                Debug.Log("ELOOOOO");
-                
+                target.Invoke("agentStart", 1f);   
             }
 
         }

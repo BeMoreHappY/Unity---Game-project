@@ -11621,7 +11621,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17874
+  m_Name: pb_Mesh17858
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -39957,7 +39957,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17310
+  m_Name: pb_Mesh17312
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -40141,6 +40141,7 @@ MonoBehaviour:
   fpscam: {fileID: 349735002}
   muzzleflash: {fileID: 2049146538}
   damage: 34
+  fireRate: 15
 --- !u!1 &290727457
 GameObject:
   m_ObjectHideFlags: 0
@@ -49942,7 +49943,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17588
+  m_Name: pb_Mesh17578
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -53039,7 +53040,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh16988
+  m_Name: pb_Mesh16992
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -61160,6 +61161,34 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1022389915337477828}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1064281068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064281067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f1877217c9c2b14da92b39a38ad0bf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+    moveSpeed: 0
+    runSpeed: 0
+    jumpForce: 0
+    maxJump: 0
+    maxDash: 0
+    mouseSens: 0
+    smooth: 0
+    smooth_mouseSens: 0
+  cam: {fileID: 349735002}
+  GroundMask:
+    serializedVersion: 2
+    m_Bits: 1048119
+  GroundCheck: {fileID: 2093861874}
+  healthBar: {fileID: 774834926}
+  maxHealth: 100
 --- !u!43 &1073053766
 Mesh:
   m_ObjectHideFlags: 0
@@ -78424,7 +78453,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1260958186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bulletHolder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93673,7 +93702,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1511663000}
   - component: {fileID: 1511663001}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97696,7 +97725,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1022389915337477828}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064281067}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 509eadd9a7ee52951bbf262f32d78743, type: 3}
   m_Name: 
@@ -98797,6 +98826,10 @@ PrefabInstance:
     - target: {fileID: 118234, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
       propertyPath: m_Name
       value: SciFiGunLightBlack
+      objectReference: {fileID: 0}
+    - target: {fileID: 118234, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 453068, guid: a4e476a037022df448ead5d0ceea7d06, type: 3}
       propertyPath: m_RootOrder
@@ -103563,7 +103596,7 @@ GameObject:
   - component: {fileID: 2049146536}
   - component: {fileID: 2049146538}
   - component: {fileID: 2049146537}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108394,6 +108427,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2093861874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1022389915540469320, guid: eef3c10c56019872e8a785285352913f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1022389915337477828}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2101501176 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3371695045913428432, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
@@ -114864,6 +114903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: jumpScale
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1022389915548557690, guid: eef3c10c56019872e8a785285352913f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1022389915548557690, guid: eef3c10c56019872e8a785285352913f,
         type: 3}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8946167082550493790}
   - component: {fileID: 8946167082550493777}
   - component: {fileID: 5601633206006586475}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -123,12 +123,13 @@ MonoBehaviour:
   spawn: {fileID: 0}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 100
+  bulletSpeed: 20
   timeBetweenAttacks: 2
   bullet: {fileID: 8637016166147384034, guid: 11d89a372d6c6ff4e808deacc7ade3d0, type: 3}
-  sightRange: 25
-  attackRange: 10
-  isSight: 1
-  isAttack: 1
+  sightRange: 10
+  attackRange: 5
+  isSight: 0
+  isAttack: 0
   sawBullet: 0
   impactForce: 100
 --- !u!195 &8946167082550493777
@@ -181,7 +182,7 @@ GameObject:
   - component: {fileID: 8946167083234138715}
   - component: {fileID: 8946167083234138714}
   - component: {fileID: 8946167083234138717}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

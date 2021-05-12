@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class BulletScriptEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
+    public int damage = 5;
     void Start()
     {
         
@@ -27,7 +28,12 @@ public class BulletScriptEnemy : MonoBehaviour
     void OnTriggerEnter(Collider Enemy){
         if(Enemy.gameObject.CompareTag("Player"))
         {
-            Enemy.gameObject.SendMessage("OnDamage");
+            Player2 target = Enemy.GetComponent<Player2>();
+            target.TakeDamage(damage);
+            Destroy(this.gameObject);
+        }
+        if(Enemy.gameObject)
+        {
             Destroy(this.gameObject);
         }
     }
