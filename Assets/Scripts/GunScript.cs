@@ -11,6 +11,7 @@ public class GunScript : MonoBehaviour
     private float nextTimeToFire = 0f;
     public float fireRate = 15f;
     public GameObject [] hole;
+    public GameObject impact;
     
     
     void Update()
@@ -45,6 +46,11 @@ public class GunScript : MonoBehaviour
                 int random = Random.Range(0, 0);
                 GameObject newHole = Instantiate(hole[random], hit.point + hit.normal * 0.001f, Quaternion.LookRotation(hit.normal)) as GameObject;
                 Destroy(newHole, 5f);
+            }
+            if (hit.collider != null)
+            {
+                GameObject impactBullet = Instantiate(impact, hit.point + hit.normal * 0.1f, Quaternion.LookRotation(hit.normal)) as GameObject;
+                Destroy(impactBullet, 2f);
             }
 
         }

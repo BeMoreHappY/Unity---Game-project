@@ -212,7 +212,7 @@ public class Player2 : MonoBehaviour {
 		Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 		RotationY += input.x * stats.mouseSens;
 		RotationX -= input.y * stats.mouseSens;
-		RotationX = Mathf.Clamp( RotationX, -50, 50);
+		RotationX = Mathf.Clamp( RotationX, -80, 80);
 		quatRotationY = Quaternion.Euler(RotationX,0,0);
 		quatRotationX = Quaternion.Euler(0, RotationY, 0);
 	}
