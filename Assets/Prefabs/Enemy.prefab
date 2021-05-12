@@ -124,10 +124,11 @@ MonoBehaviour:
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 100
   bulletSpeed: 20
+  rotationSpeed: 5
   timeBetweenAttacks: 2
   bullet: {fileID: 8637016166147384034, guid: 11d89a372d6c6ff4e808deacc7ade3d0, type: 3}
-  sightRange: 10
-  attackRange: 5
+  sightRange: 14
+  attackRange: 8
   isSight: 0
   isAttack: 0
   sawBullet: 0

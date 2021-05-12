@@ -23,6 +23,7 @@ public class EnemyAi : MonoBehaviour
     public float bulletSpeed;
 
     //Attacking
+    public float rotationSpeed = 5f;
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject bullet;
@@ -69,7 +70,11 @@ public class EnemyAi : MonoBehaviour
                 {
                     AttackPlayer();
                 }
-                if (hit.collider.gameObject.CompareTag("enemy"))
+                else if (hit.collider.gameObject.CompareTag("BulletEnemy"))
+                {
+                    AttackPlayer();
+                }
+                else
                 {
                     ChasePlayer();
                 }
@@ -116,13 +121,14 @@ public class EnemyAi : MonoBehaviour
         //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
-
+        //transform.LookAt(player);
+        Quaternion LookOnPlayer = Quaternion.LookRotation(player.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, LookOnPlayer, rotationSpeed * Time.deltaTime);
         if (!alreadyAttacked)
         {
             ///Attack code here
             Rigidbody rb = Instantiate(bullet, agent.transform.position + agent.transform.forward, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(rb.transform.rotation * agent.transform.forward * bulletSpeed);
+            rb.AddForce(agent.transform.forward * bulletSpeed);
             ///End of attack code
 
             alreadyAttacked = true;
@@ -145,15 +151,7 @@ public class EnemyAi : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-    void OnDamage(){
-    health -= 30;
-    if (health <= 0) {
-        spawn.enemyDied();
-        DestroyEnemy();
-    }
-    Debug.Log("HIT!");
-  }
-  public void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0f)

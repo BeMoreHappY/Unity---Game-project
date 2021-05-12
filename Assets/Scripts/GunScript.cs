@@ -10,6 +10,7 @@ public class GunScript : MonoBehaviour
     public float damage = 10f;
     private float nextTimeToFire = 0f;
     public float fireRate = 15f;
+    public GameObject [] hole;
     
     
     void Update()
@@ -37,6 +38,13 @@ public class GunScript : MonoBehaviour
                 if (target.isActive()) target.agentStop();
                 target.impact(-hit.normal);
                 target.Invoke("agentStart", 1f);   
+            }
+            if (hit.collider != null && hit.rigidbody == null)
+            {
+                Debug.Log("elooo");
+                int random = Random.Range(0, 0);
+                GameObject newHole = Instantiate(hole[random], hit.point + hit.normal * 0.001f, Quaternion.LookRotation(hit.normal)) as GameObject;
+                Destroy(newHole, 5f);
             }
 
         }
