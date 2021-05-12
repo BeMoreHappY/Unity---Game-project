@@ -17,12 +17,23 @@ public class Player2 : MonoBehaviour {
 		public bool smooth;
 		public float smooth_mouseSens;
     }
+
+    [Serializable]
+    public struct InterfaceElements
+    {
+	    public GameObject pausePanel;
+	    public GameObject UiPlayer;
+	    public GameObject weaponPanel;
+    }
+    
 	[SerializeField] private PlayerMovement stats;
-    private Rigidbody RB;
+	[SerializeField] private InterfaceElements interfaceElements;
+	private Rigidbody RB;
 	public Camera cam;
 	public LayerMask GroundMask;
 	public GameObject GroundCheck;
 	public HealthBar healthBar;
+	public int skillPoints = 15;
 	public int maxHealth = 100;
 	private int currentHealth;
 	private float maxVelocityChange = 10.0f;
@@ -43,6 +54,7 @@ public class Player2 : MonoBehaviour {
 	private int ButtonCountS = 0;
 	private float ButtonCooldownD = 0.3F;
 	private int ButtonCountD = 0;
+	public bool gameStopped = false;
 
 	Quaternion quatRotationY;
 	Quaternion quatRotationX;
@@ -69,25 +81,31 @@ public class Player2 : MonoBehaviour {
 	}
 	void FixedUpdate() 
 	{
-		if (is_grounded()){
-			jumpCount = stats.maxJump;
-			dashCount = stats.maxDash;
+		if (!gameStopped)
+		{
+			if (is_grounded()){
+				jumpCount = stats.maxJump;
+				dashCount = stats.maxDash;
+			}
+			Dash();
+			Jump();
+			Movement();
+		    RB.AddForce(new Vector3 (0, Physics.gravity.y , 0));
 		}
-		Dash();
-		Jump();
-		Movement();
-	    RB.AddForce(new Vector3 (0, Physics.gravity.y , 0));
 	}
 	void LateUpdate()
 	{
-		MouseInput();
-		if (stats.smooth){
-			transform.localRotation = Quaternion.Slerp(transform.localRotation, quatRotationX, Time.deltaTime * stats.smooth_mouseSens);
-			cam.transform.localRotation = Quaternion.Slerp (cam.transform.localRotation, quatRotationY, Time.deltaTime * stats.smooth_mouseSens);
-		}
-		else{
-			transform.localRotation = quatRotationX;
-			cam.transform.localRotation = quatRotationY;
+		if (!gameStopped)
+		{
+			MouseInput();
+			if (stats.smooth){
+				transform.localRotation = Quaternion.Slerp(transform.localRotation, quatRotationX, Time.deltaTime * stats.smooth_mouseSens);
+				cam.transform.localRotation = Quaternion.Slerp (cam.transform.localRotation, quatRotationY, Time.deltaTime * stats.smooth_mouseSens);
+			}
+			else{
+				transform.localRotation = quatRotationX;
+				cam.transform.localRotation = quatRotationY;
+			}
 		}
 	}
 	
@@ -206,6 +224,18 @@ public class Player2 : MonoBehaviour {
 			jumpCount--;
 			spacePressed = true;
 		}
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			showPauseMenu();
+		}
+		if (Input.GetKeyDown(KeyCode.Q))
+		{
+			showWeaponMenu();
+		}
+		if (Input.GetKeyUp(KeyCode.Q))
+		{
+			ResumeGame();
+		}
 	}
 	private void MouseInput()
 	{
@@ -261,6 +291,115 @@ public class Player2 : MonoBehaviour {
 		stats.maxJump = 2;
 		stats.maxDash = 1;
 		currentSpeed = stats.moveSpeed;
+	}
+
+	private void showPauseMenu()
+	{
+		gameStopped = true;
+		Debug.Log("P2ESCAPE");
+		Time.timeScale = 0;
+		Cursor.lockState = CursorLockMode.Confined;
+		interfaceElements.pausePanel.SetActive(true);
+		interfaceElements.UiPlayer.SetActive(false);
+	}
+
+	private void showWeaponMenu()
+	{
+		gameStopped = true;
+		Debug.Log("Q");
+		Time.timeScale = 0;
+		interfaceElements.weaponPanel.SetActive(true);
+		interfaceElements.UiPlayer.SetActive(false);
+		Cursor.lockState = CursorLockMode.None;   
+	}
+	
+	public void ResumeGame()
+	{
+		gameStopped = false;
+		Time.timeScale = 1;
+		interfaceElements.pausePanel.SetActive(false);
+		interfaceElements.weaponPanel.SetActive(false);
+		interfaceElements.UiPlayer.SetActive(true);
+		Cursor.lockState = CursorLockMode.Locked;
+	}
+	
+	
+	public void skillsTreeButtonsAction(int buttonID){
+		/* 
+		* 0 - Double Jump;
+		* 1 - Triple Jump;
+		* 2 - Wall Run;
+		* 3 - Wall Run - 5%G;
+		* 4 - Wall Run - 5%G01;
+		* 5 - Wall Run - 5%G02;
+		* 6 - Air Dash;
+		* 7 - Air Dash - 5%G;
+		* 8 - Air Dash - 5%G01;
+		* 9 - Air Dash - 5%G02;
+		*/
+
+		switch(buttonID){
+			case 0:
+				//maxNumberOfJumps = 2;
+				Debug.Log("Double Jump activated");
+				break;
+			case 1:
+				//maxNumberOfJumps = 3;
+				Debug.Log("Triple Jump activated");
+				break;
+			case 2:
+				Debug.Log("Wall Run activated");
+				break;
+			case 3:
+				Debug.Log("Wall Run - 5%G activated");
+				break;
+			case 4:
+				Debug.Log("Wall Run - 5%G01 activated");
+				break;
+			case 5:
+				Debug.Log("Wall Run - 5%G02 activated");
+				break;
+			case 6:
+				Debug.Log("Air Dash activated");
+				break;
+			case 7:
+				Debug.Log("Air Dash -5%G activated");
+				break;
+			case 8:
+				Debug.Log("Air Dash -5%G01 activated");
+				break;
+			case 9:
+				Debug.Log("Air Dash -5%G02 activated");
+				break;
+		}
+	}
+
+	public void weaponChoosePanelAction(int buttonID)
+	{
+		switch (buttonID)
+		{
+			case 0:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 1:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 2:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 3:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 4:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 5:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+			case 6:
+				Debug.Log("Wybrano przedmiot" + buttonID);
+				break;
+		}
 	}
 
 }

@@ -32,7 +32,7 @@ public class creativeButtons : MonoBehaviour
 			buttonID=6;
 		}
 
-		player.GetComponent<Player>().weaponChoosePanelAction(buttonID);
+		player.GetComponent<Player2>().weaponChoosePanelAction(buttonID);
 	}
 
 }

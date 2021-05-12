@@ -341,7 +341,6 @@ public class Player : MonoBehaviour
       weaponPanel.SetActive(false);
       UiPlayer.SetActive(true);
       Cursor.lockState = CursorLockMode.Locked;
-
     }
     void OnDamage()
     {

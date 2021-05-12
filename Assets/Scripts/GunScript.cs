@@ -5,6 +5,7 @@ using UnityEngine;
 public class GunScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject player;
     public Camera fpscam;
     public ParticleSystem muzzleflash;
     public float damage = 10f;
@@ -12,14 +13,23 @@ public class GunScript : MonoBehaviour
     public float fireRate = 15f;
     public GameObject [] hole;
     public GameObject impact;
+    private Player2 player2Script;
     
+    
+    public void Start()
+    {
+        player2Script = player.GetComponent<Player2>();
+    }
     
     void Update()
     {
-        if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+        if (!player2Script.gameStopped)
         {
-            nextTimeToFire = Time.time + 1f/fireRate;
-            Shoot();
+            if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
+            {
+                nextTimeToFire = Time.time + 1f/fireRate;
+                Shoot();
+            }
         }
     }
 

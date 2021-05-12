@@ -26,7 +26,7 @@ public class buttonManager : MonoBehaviour
     public void setSelected()
     {
 		string buttonName = gameObject.name;
-		int skillPoints = player.GetComponent<Player>().skillPoints;
+		int skillPoints = player.GetComponent<Player2>().skillPoints;
 	
 		if(skillPoints>0){
 			int skillID = 0;
@@ -53,10 +53,10 @@ public class buttonManager : MonoBehaviour
 				skillID = 9;
 			}
 
-			player.GetComponent<Player>().skillsTreeButtonsAction(skillID);
+			player.GetComponent<Player2>().skillsTreeButtonsAction(skillID);
         	GetComponent<Image>().color = selectedColor;
 			GetComponent<Button>().interactable = false;
-			player.GetComponent<Player>().skillPoints--;
+			player.GetComponent<Player2>().skillPoints--;
 
 			updateUI();
 			activateNextButton();
@@ -78,7 +78,7 @@ public class buttonManager : MonoBehaviour
 
 	public void updateUI(){
 		try{
-			skillPointsTextUI.GetComponent<Text>().text = "SKILL POINTS: "+player.GetComponent<Player>().skillPoints;
+			skillPointsTextUI.GetComponent<Text>().text = "SKILL POINTS: "+player.GetComponent<Player2>().skillPoints;
 	
 		}catch(Exception e){
 			//Debug.Log("Ni mo komponentu SKILL POINTS TEXT w UI");

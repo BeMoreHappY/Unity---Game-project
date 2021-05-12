@@ -39812,6 +39812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 978e445049995f94c9bc452385f14d5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 1064281067}
   fpscam: {fileID: 349735002}
   muzzleflash: {fileID: 2049146538}
   damage: 34
@@ -58584,7 +58585,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1643290159}
+      objectReference: {fileID: 1064281068}
     - target: {fileID: 3371695045913428435, guid: c8c85b89f447a5f3b8f7e2c5ef4daacc,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -60849,13 +60850,19 @@ MonoBehaviour:
     mouseSens: 0
     smooth: 0
     smooth_mouseSens: 0
+  interfaceElements:
+    pausePanel: {fileID: 1706315094}
+    UiPlayer: {fileID: 1655128521}
+    weaponPanel: {fileID: 1195184514}
   cam: {fileID: 349735002}
   GroundMask:
     serializedVersion: 2
     m_Bits: 1048119
   GroundCheck: {fileID: 2093861874}
   healthBar: {fileID: 774834926}
+  skillPoints: 15
   maxHealth: 100
+  gameStopped: 0
 --- !u!1 &1089623097
 GameObject:
   m_ObjectHideFlags: 0
@@ -97059,18 +97066,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!114 &1643290159 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1022389915548557690, guid: eef3c10c56019872e8a785285352913f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1022389915337477828}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1064281067}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509eadd9a7ee52951bbf262f32d78743, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1655128521
 GameObject:
   m_ObjectHideFlags: 0
@@ -115078,7 +115073,8 @@ PrefabInstance:
       propertyPath: field of view
       value: 50
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1022389915548557690, guid: eef3c10c56019872e8a785285352913f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: eef3c10c56019872e8a785285352913f, type: 3}
 --- !u!1 &1022389915337477829 stripped
 GameObject:
