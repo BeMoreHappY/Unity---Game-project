@@ -60,6 +60,7 @@ public class Player2 : MonoBehaviour {
 	Quaternion quatRotationX;
 	Vector3 velocity;
 	Vector3 kierunek;
+	private bool[] idWeaponIsActive = new bool[7];
 
 	void Start() 
 	{
@@ -72,6 +73,7 @@ public class Player2 : MonoBehaviour {
 		cam.transform.localRotation = Quaternion.identity;
 		currentHealth = maxHealth;
       	healthBar.MaxHealth(currentHealth);
+
 	}
 	void Update()
 	{
@@ -310,6 +312,7 @@ public class Player2 : MonoBehaviour {
 		Time.timeScale = 0;
 		interfaceElements.weaponPanel.SetActive(true);
 		interfaceElements.UiPlayer.SetActive(false);
+		dostepneBronie();
 		Cursor.lockState = CursorLockMode.None;   
 	}
 	
@@ -401,5 +404,22 @@ public class Player2 : MonoBehaviour {
 				break;
 		}
 	}
-
+	void dostepneBronie()
+    {
+		for (int i = 0; i < 7; i++)
+        {
+			if(idWeaponIsActive[i] == true)
+            {
+				GameObject.Find("Canvas/WyborBroni").GetComponent<OdblokowaneBronie>().odblokuj(i);
+			}
+            else
+            {
+				GameObject.Find("Canvas/WyborBroni").GetComponent<OdblokowaneBronie>().zablokuj(i);
+			}
+        }			
+    }
+	void pobranieStatusuBroni()
+    {
+		idWeaponIsActive = GameObject.Find("Canvas/WyborBroni").GetComponent<OdblokowaneBronie>().status();
+	}
 }

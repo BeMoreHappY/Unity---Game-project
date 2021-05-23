@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{0FCCBF18-5BA4-E02F-F99F-1F6EFA3ECB0F}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/OdblokowaneBronie.cs">
+    <Files>
+      <File FileName="Assets/Scripts/creativeButtons.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Player2.cs" Line="425" Column="2" />
+      <File FileName="Assets/Scripts/OdblokowaneBronie.cs" Line="31" Column="22" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Unity---Game-project" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="OdblokowaneBronie.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3f35a5b2-d569-49d2-a1f3-195547d24641" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
