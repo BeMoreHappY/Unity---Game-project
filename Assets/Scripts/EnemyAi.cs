@@ -166,16 +166,18 @@ public class EnemyAi : MonoBehaviour
     }
     public void agentStop()
     {
-        
-        agent.isStopped = true;
         active = false;
+        agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+        
         rigibody.isKinematic = false;
     }
     public void agentStart()
     {
        
-        agent.isStopped = false;
+        
         active = true;
+        agent.isStopped = false;
         walkPointSet = false;
         rigibody.isKinematic = true;
     }

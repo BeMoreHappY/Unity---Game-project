@@ -46,9 +46,9 @@ public class GunScript : MonoBehaviour
             }
             if (hit.rigidbody != null)
             {
-                if (target.isActive()) target.agentStop();
+                //if (target.isActive()) target.agentStop();
                 target.impact(-hit.normal);
-                target.Invoke("agentStart", 1f);   
+                //target.Invoke("agentStart", 1f);   
             }
             if (hit.collider != null && hit.rigidbody == null)
             {
