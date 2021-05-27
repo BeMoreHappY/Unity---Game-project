@@ -47458,7 +47458,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23268
+  m_Name: pb_Mesh18584
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -56945,6 +56945,7 @@ MonoBehaviour:
   skillPoints: 15
   maxHealth: 100
   gameStopped: 0
+  idWeaponIsActive: 00000000000000
 --- !u!1 &1089623097
 GameObject:
   m_ObjectHideFlags: 0
@@ -92613,6 +92614,7 @@ GameObject:
   - component: {fileID: 1601689347}
   - component: {fileID: 1601689346}
   - component: {fileID: 1601689345}
+  - component: {fileID: 1601689350}
   m_Layer: 0
   m_Name: Cube (37)
   m_TagString: Untagged
@@ -92912,6 +92914,25 @@ Transform:
   m_Father: {fileID: 214886087}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1601689350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601689344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e83d8b4361163034b8be6d6e412911c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactionType: 1
+  go: {fileID: 0}
+  spawn: {fileID: 0}
+  val: 10
+  val2: 10
+  go2: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1001 &1632764957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98078,7 +98099,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23716
+  m_Name: pb_Mesh19006
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

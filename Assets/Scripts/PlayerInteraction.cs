@@ -45,11 +45,16 @@ public class PlayerInteraction : MonoBehaviour
                 }
                 break;
             case Interactable.InteractionType.Hold:
-                if (Input.GetKeyDown(key)){
-                    interactable.Interact();
+                if (Input.GetKey(key)){
+                    interactable.IncreaseHoldTime();
+                    if(interactable.GetHoldTime() > 1f){
+                        interactable.Interact();
+                        interactable.ResetHoldTime();
+                    }
+                }else{
+                    interactable.ResetHoldTime();
                 }
                 break;
-            
             default:
                 throw new System.Exception("Unsupported type of interactable");
         }

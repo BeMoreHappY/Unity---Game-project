@@ -67,6 +67,7 @@
      <Compile Include="Assets\Scripts\GunScript.cs" />
      <Compile Include="Assets\Scripts\Interactable.cs" />
      <Compile Include="Assets\Scripts\Ladder.cs" />
+     <Compile Include="Assets\Scripts\MedBay.cs" />
      <Compile Include="Assets\Scripts\NewArea.cs" />
      <Compile Include="Assets\Scripts\OdblokowaneBronie.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

@@ -60,7 +60,7 @@ public class Player2 : MonoBehaviour {
 	Quaternion quatRotationX;
 	Vector3 velocity;
 	Vector3 kierunek;
-	private bool[] idWeaponIsActive = new bool[7];
+	public bool[] idWeaponIsActive = new bool[7];
 
 	void Start() 
 	{
@@ -251,6 +251,11 @@ public class Player2 : MonoBehaviour {
 	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
+		healthBar.SetHealth(currentHealth);
+	}
+	public void Heal(int heal){
+		if(currentHealth + heal <= maxHealth)currentHealth+=heal;
+		else currentHealth = maxHealth;
 		healthBar.SetHealth(currentHealth);
 	}
 	float CalculateVerticalSpeed() 
