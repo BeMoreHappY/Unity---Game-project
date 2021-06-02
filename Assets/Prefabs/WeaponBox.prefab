@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 777771386774315591}
   - component: {fileID: 7915137944831069614}
   - component: {fileID: 3642105204699923891}
-  - component: {fileID: 3228442434970277380}
   m_Layer: 0
   m_Name: Cube.002
   m_TagString: Untagged
@@ -80,25 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3228442434970277380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3518132586866910107}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36fa8aefda0e96b40a7e0e22b8132800, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactionType: 0
-  go: {fileID: 0}
-  spawn: {fileID: 0}
-  val: 0
-  go2: {fileID: 0}
-  weap: {fileID: 0}
-  name: 
 --- !u!1 &4379754729017188974
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,9 +210,13 @@ MonoBehaviour:
   go: {fileID: 0}
   spawn: {fileID: 0}
   val: 0
+  val2: 10
   go2: {fileID: 0}
   weap: {fileID: 0}
+  go3: {fileID: 0}
+  weap2: {fileID: 0}
   name: 
+  indeks: 0
 --- !u!65 &-7208005684029950963
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -14,6 +14,7 @@ public class GunScript : MonoBehaviour
     public GameObject [] hole;
     public GameObject impact;
     private Player2 player2Script;
+    public int ammo;
     
     
     public void Start()
@@ -28,7 +29,11 @@ public class GunScript : MonoBehaviour
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
             {
                 nextTimeToFire = Time.time + 1f/fireRate;
+                if (ammo>0)
+                {
                 Shoot();
+                ammo--;
+                }
             }
         }
     }

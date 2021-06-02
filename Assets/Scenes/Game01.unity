@@ -38603,6 +38603,7 @@ MonoBehaviour:
   hole:
   - {fileID: 6675263037117905342, guid: 06087582ba537504db6e62ecd43f5a76, type: 3}
   impact: {fileID: 8580979269123020374, guid: 4ae044a14d8480b419b3567da177f03c, type: 3}
+  ammo: 10
 --- !u!1 &290727457
 GameObject:
   m_ObjectHideFlags: 0
@@ -69724,7 +69725,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23560
+  m_Name: pb_Mesh21616
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -72787,6 +72788,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponBox (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6270471928732768958, guid: 298330810237f454f873d1d4f61ed05e,
+        type: 3}
+      propertyPath: go3
+      value: 
+      objectReference: {fileID: 290340416}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298330810237f454f873d1d4f61ed05e, type: 3}
 --- !u!1 &1199098866
@@ -89926,6 +89932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponBox
       objectReference: {fileID: 0}
+    - target: {fileID: 6270471928732768958, guid: 298330810237f454f873d1d4f61ed05e,
+        type: 3}
+      propertyPath: go3
+      value: 
+      objectReference: {fileID: 290340416}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298330810237f454f873d1d4f61ed05e, type: 3}
 --- !u!1001 &1538074865
@@ -104076,7 +104087,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: WeaponBox (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6270471928732768958, guid: 298330810237f454f873d1d4f61ed05e,
+        type: 3}
+      propertyPath: go3
+      value: 
+      objectReference: {fileID: 290340416}
+    m_RemovedComponents:
+    - {fileID: 3228442434970277380, guid: 298330810237f454f873d1d4f61ed05e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 298330810237f454f873d1d4f61ed05e, type: 3}
 --- !u!43 &2125454275
 Mesh:
