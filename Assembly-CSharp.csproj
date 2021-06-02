@@ -74,6 +74,7 @@
      <Compile Include="Assets\Scripts\Player2.cs" />
      <Compile Include="Assets\Scripts\PlayerInteraction.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\WaveCount.cs" />
      <Compile Include="Assets\Scripts\bulletScript.cs" />
      <Compile Include="Assets\Scripts\buttonManager.cs" />
      <Compile Include="Assets\Scripts\creativeButtons.cs" />

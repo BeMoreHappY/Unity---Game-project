@@ -62,6 +62,7 @@ public class Player2 : MonoBehaviour {
 	Vector3 kierunek;
 	public bool[] idWeaponIsActive = new bool[7];
 
+
 	void Start() 
 	{
 		startingStats();
@@ -74,12 +75,13 @@ public class Player2 : MonoBehaviour {
 		currentHealth = maxHealth;
       	healthBar.MaxHealth(currentHealth);
 
+
 	}
 	void Update()
 	{
 		CooldownDash();
 		ButtonCheck();
-
+		if(currentHealth==0)gameOver();
 	}
 	void FixedUpdate() 
 	{
@@ -426,5 +428,11 @@ public class Player2 : MonoBehaviour {
 	void pobranieStatusuBroni()
     {
 		idWeaponIsActive = GameObject.Find("Canvas/WyborBroni").GetComponent<OdblokowaneBronie>().status();
+	}
+
+	void gameOver()
+	{
+
+		Application.LoadLevel("gameOver");
 	}
 }
