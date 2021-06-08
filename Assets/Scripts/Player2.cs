@@ -45,6 +45,7 @@ public class Player2 : MonoBehaviour {
 	private bool grounded = false;
 	private float RotationX;
 	private float RotationY;
+	public GameObject weapon;
 	
 	private float ButtonCooldownW = 0.3F;
 	private int ButtonCountW = 0;
@@ -65,6 +66,7 @@ public class Player2 : MonoBehaviour {
 
 	void Start() 
 	{
+		idWeaponIsActive[0] = true;
 		startingStats();
         RB = GetComponent<Rigidbody>();
 	    RB.freezeRotation = true;
@@ -314,6 +316,7 @@ public class Player2 : MonoBehaviour {
 
 	private void showWeaponMenu()
 	{
+		Cursor.visible = true;
 		gameStopped = true;
 		Debug.Log("Q");
 		Time.timeScale = 0;
@@ -325,6 +328,7 @@ public class Player2 : MonoBehaviour {
 	
 	public void ResumeGame()
 	{
+		Cursor.visible = false;
 		gameStopped = false;
 		Time.timeScale = 1;
 		interfaceElements.pausePanel.SetActive(false);
@@ -386,6 +390,8 @@ public class Player2 : MonoBehaviour {
 
 	public void weaponChoosePanelAction(int buttonID)
 	{
+		
+		weapon.GetComponent<weaponSwitcher>().SwitchWeapon(buttonID);
 		switch (buttonID)
 		{
 			case 0:

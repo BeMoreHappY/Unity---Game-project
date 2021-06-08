@@ -28,6 +28,7 @@ public class GunScript : MonoBehaviour
         {
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
             {
+                Debug.Log(ammo);
                 nextTimeToFire = Time.time + 1f/fireRate;
                 if (ammo>0)
                 {
