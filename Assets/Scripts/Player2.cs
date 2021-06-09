@@ -13,6 +13,7 @@ public class Player2 : MonoBehaviour {
         public float jumpForce;
 		public int maxJump;
 		public int maxDash;
+		public int dashForce;
         public float mouseSens;
 		public bool smooth;
 		public float smooth_mouseSens;
@@ -76,8 +77,6 @@ public class Player2 : MonoBehaviour {
 		cam.transform.localRotation = Quaternion.identity;
 		currentHealth = maxHealth;
       	healthBar.MaxHealth(currentHealth);
-
-
 	}
 	void Update()
 	{
@@ -93,6 +92,7 @@ public class Player2 : MonoBehaviour {
 				jumpCount = stats.maxJump;
 				dashCount = stats.maxDash;
 			}
+			
 			Dash();
 			Jump();
 			Movement();
@@ -133,7 +133,7 @@ public class Player2 : MonoBehaviour {
 	{
 		if (spacePressed) 
 		{
-			Debug.Log("JUmp");
+			Debug.Log("JUmp; JumpCount: "+jumpCount+"; MaxJUMP: "+stats.maxJump);
 			spacePressed = false;
 			RB.velocity = new Vector3(velocity.x, CalculateVerticalSpeed(), velocity.z);
 			jumpCount--;
@@ -145,7 +145,7 @@ public class Player2 : MonoBehaviour {
 		{
 			dash = false;
 			kierunek = kierunek.normalized;
-			RB.AddForce(kierunek * 100, ForceMode.Impulse);
+			RB.AddForce(kierunek * stats.dashForce, ForceMode.Impulse);
 			dashCount--;
 		}
 	}
@@ -220,16 +220,13 @@ public class Player2 : MonoBehaviour {
 		{
 			currentSpeed = stats.moveSpeed;
 		}
-		if (Input.GetKeyDown(KeyCode.Space) && is_grounded())
-		{
-			jumpCount--;
-			spacePressed = true;
-		}
+		
 		if (Input.GetKeyDown(KeyCode.Space) && (jumpCount > 0))
 		{
-			jumpCount--;
+			//jumpCount--;
 			spacePressed = true;
 		}
+		
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
 			showPauseMenu();
@@ -299,8 +296,9 @@ public class Player2 : MonoBehaviour {
 		stats.jumpForce = 2.5f;
 		stats.moveSpeed = 10.0f;
 		stats.runSpeed = 1.5f;
-		stats.maxJump = 2;
+		stats.maxJump = 1;
 		stats.maxDash = 1;
+		stats.dashForce = 0;
 		currentSpeed = stats.moveSpeed;
 	}
 
@@ -354,11 +352,11 @@ public class Player2 : MonoBehaviour {
 
 		switch(buttonID){
 			case 0:
-				//maxNumberOfJumps = 2;
+				stats.maxJump = 2;
 				Debug.Log("Double Jump activated");
 				break;
 			case 1:
-				//maxNumberOfJumps = 3;
+				stats.maxJump = 3;
 				Debug.Log("Triple Jump activated");
 				break;
 			case 2:
@@ -374,15 +372,19 @@ public class Player2 : MonoBehaviour {
 				Debug.Log("Wall Run - 5%G02 activated");
 				break;
 			case 6:
+				stats.dashForce = 50;
 				Debug.Log("Air Dash activated");
 				break;
 			case 7:
+				stats.dashForce += 20;
 				Debug.Log("Air Dash -5%G activated");
 				break;
 			case 8:
+				stats.dashForce += 20;
 				Debug.Log("Air Dash -5%G01 activated");
 				break;
 			case 9:
+				stats.dashForce += 20;
 				Debug.Log("Air Dash -5%G02 activated");
 				break;
 		}
