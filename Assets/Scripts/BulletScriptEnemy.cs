@@ -4,27 +4,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-
+/// <summary>
+/// Klasa, która odpowiada za pocisk przeciwników
+/// </summary>
 public class BulletScriptEnemy : MonoBehaviour
 {
     // Start is called before the first frame update
     public int damage = 5;
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
+    /// <summary>
+	/// Funkcja, która wykonuje się co klatkę
+	/// </summary>
     void Update()
     {
         Destroy(this.gameObject, 5);
     }
-
-    private void FixedUpdate()
-    {
-        
-    }
-    
+    /// <summary>
+    /// Funkcja, która sprawdza czy obiekt zderzył się z innym obiektem
+    /// </summary>
+    /// <param name="Enemy">Przyjmuje collider obiektu</param>
     void OnTriggerEnter(Collider Enemy){
         if(Enemy.gameObject.CompareTag("Player"))
         {

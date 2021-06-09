@@ -2,10 +2,13 @@
 using System;
 using System.Collections;
  
- 
+ /// <summary>
+ /// Klasa, która odpowiada za obsługę gracza i jego interfejsu
+ /// </summary>
 public class Player2 : MonoBehaviour {
  
 	[Serializable]
+	///Struktura, która przechowuje zmienne ruchu gracza
     public struct PlayerMovement
     {
         public float moveSpeed;
@@ -20,6 +23,7 @@ public class Player2 : MonoBehaviour {
     }
 
     [Serializable]
+	///Struktura, która przechowuje zmienne interfejsu
     public struct InterfaceElements
     {
 	    public GameObject pausePanel;
@@ -64,7 +68,9 @@ public class Player2 : MonoBehaviour {
 	Vector3 kierunek;
 	public bool[] idWeaponIsActive = new bool[7];
 
-
+	/// <summary>
+	/// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
+	/// </summary>
 	void Start() 
 	{
 		idWeaponIsActive[0] = true;
@@ -78,12 +84,18 @@ public class Player2 : MonoBehaviour {
 		currentHealth = maxHealth;
       	healthBar.MaxHealth(currentHealth);
 	}
+	/// <summary>
+	/// Funkcja, która wykonuje się co klatkę
+	/// </summary>
 	void Update()
 	{
 		CooldownDash();
 		ButtonCheck();
 		if(currentHealth==0)gameOver();
 	}
+	/// <summary>
+	/// Funkcja, która wykonuje się co klatkę fizyki
+	/// </summary>
 	void FixedUpdate() 
 	{
 		if (!gameStopped)
@@ -99,6 +111,9 @@ public class Player2 : MonoBehaviour {
 		    RB.AddForce(new Vector3 (0, Physics.gravity.y , 0));
 		}
 	}
+	/// <summary>
+	/// Funkcja, która wykonuje się po innych metodach aktualizacji
+	/// </summary>
 	void LateUpdate()
 	{
 		if (!gameStopped)
@@ -115,7 +130,9 @@ public class Player2 : MonoBehaviour {
 		}
 	}
 	
-	
+	/// <summary>
+	/// Funkcja, która odpowiada za ruch postaci
+	/// </summary>
 	private void Movement()
 	{
 		Vector3 targetVelocity = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
@@ -129,6 +146,9 @@ public class Player2 : MonoBehaviour {
 		RB.AddForce(velocityChange, ForceMode.VelocityChange);
 		
 	}
+	/// <summary>
+	/// Funkcja, która odpowiada za skok postaci
+	/// </summary>
 	private void Jump()
 	{
 		if (spacePressed) 
@@ -139,6 +159,9 @@ public class Player2 : MonoBehaviour {
 			jumpCount--;
 		}
 	}
+	/// <summary>
+	/// Funkcja, która odpowiada za nadanie nagłego pędu w konkretnym kierunku
+	/// </summary>
 	private void Dash()
 	{
 		if (dash && dashCount > 0)
@@ -149,7 +172,9 @@ public class Player2 : MonoBehaviour {
 			dashCount--;
 		}
 	}
-	
+	/// <summary>
+	/// Funkcja, która sprawdza przyciski z klawiatury
+	/// </summary>
 	private void ButtonCheck()
 	{
 		if (Input.GetKeyDown(KeyCode.LeftShift) && is_grounded())
@@ -240,6 +265,9 @@ public class Player2 : MonoBehaviour {
 			ResumeGame();
 		}
 	}
+	/// <summary>
+	/// Funkcja, ktróra zajmuje się ruchem myszki
+	/// </summary>
 	private void MouseInput()
 	{
 		Vector2 input = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
@@ -249,27 +277,46 @@ public class Player2 : MonoBehaviour {
 		quatRotationY = Quaternion.Euler(RotationX,0,0);
 		quatRotationX = Quaternion.Euler(0, RotationY, 0);
 	}
+	/// <summary>
+	/// Funkcja, która odpowiada za otrzymywanie obrażeń przez gracza
+	/// </summary>
+	/// <param name="damage">Ilość obrażeń otrzymanych przez gracza</param>
 	public void TakeDamage(int damage)
 	{
 		currentHealth -= damage;
 		healthBar.SetHealth(currentHealth);
 	}
+	/// <summary>
+	/// Funkcja, która odpowiada za leczenie gracza
+	/// </summary>
+	/// <param name="heal">Ilość dodawanych punktów życia</param>
 	public void Heal(int heal){
 		if(currentHealth + heal <= maxHealth)currentHealth+=heal;
 		else currentHealth = maxHealth;
 		healthBar.SetHealth(currentHealth);
 	}
+	/// <summary>
+	/// Funkcja, która oblicza prędkość wertykalną gracza
+	/// </summary>
+	/// <returns>Zwraca prędkość wertykalną</returns>
 	float CalculateVerticalSpeed() 
 	{
 	    return Mathf.Sqrt(2 * stats.jumpForce * -Physics.gravity.y);
 	}
+	/// <summary>
+	/// Funkcja, która sprawdza, czy gracz na czymś stoi
+	/// </summary>
+	/// <returns>Zwraca true jeśli stoi na czymś. Zwraca false w przeciwnym wypadku</returns>
 	bool is_grounded()
 	{
 		if(Physics.OverlapSphere(GroundCheck.transform.position, 0.1f, GroundMask).Length == 0){
 			return false;
 		}
 		return true; 
-	}	
+	}
+	/// <summary>
+	/// Funkcja, która oblicza opóźnienie między wciskaniem przycisku
+	/// </summary>
 	private void CooldownDash()
 	{
 		if (ButtonCooldownW>0){
@@ -289,6 +336,9 @@ public class Player2 : MonoBehaviour {
 		}
 		else{ButtonCountD=0;}
 	}
+	/// <summary>
+	/// Funkcja, która nadaje początkowe wartości zmiennym ruchu.
+	/// </summary>
 	private void startingStats()
 	{
 		stats.mouseSens = 1.0f;
@@ -301,7 +351,9 @@ public class Player2 : MonoBehaviour {
 		stats.dashForce = 0;
 		currentSpeed = stats.moveSpeed;
 	}
-
+	/// <summary>
+	/// Funckja, która odpowiada za wyświetlanie okna pauzy
+	/// </summary>
 	private void showPauseMenu()
 	{
 		gameStopped = true;
@@ -311,7 +363,9 @@ public class Player2 : MonoBehaviour {
 		interfaceElements.pausePanel.SetActive(true);
 		interfaceElements.UiPlayer.SetActive(false);
 	}
-
+	/// <summary>
+	/// Funkcja, która odpowiada za wyświetlenie okna wyboru broni
+	/// </summary>
 	private void showWeaponMenu()
 	{
 		Cursor.visible = true;
@@ -323,7 +377,9 @@ public class Player2 : MonoBehaviour {
 		dostepneBronie();
 		Cursor.lockState = CursorLockMode.None;   
 	}
-	
+	/// <summary>
+	/// Funkcja, która odpowiada za wznawianie gry
+	/// </summary>
 	public void ResumeGame()
 	{
 		Cursor.visible = false;
@@ -335,7 +391,10 @@ public class Player2 : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 	
-	
+	/// <summary>
+	/// Finkcja która odpowiada za zwiększanie statystyk umiejętności
+	/// </summary>
+	/// <param name="buttonID">Przyjmuje ID wcyśniętego przycisku</param>
 	public void skillsTreeButtonsAction(int buttonID){
 		/* 
 		* 0 - Double Jump;
@@ -389,7 +448,10 @@ public class Player2 : MonoBehaviour {
 				break;
 		}
 	}
-
+	/// <summary>
+	/// Funkcja, która zmienia broń przeciwnika
+	/// </summary>
+	/// <param name="buttonID">Przyjmuje ID broni</param>
 	public void weaponChoosePanelAction(int buttonID)
 	{
 		
@@ -419,6 +481,9 @@ public class Player2 : MonoBehaviour {
 				break;
 		}
 	}
+	/// <summary>
+	/// Funkcja, która odblokowuje lub blokuje bronie na podstawie tablicy bool - idWeaponIsActive
+	/// </summary>
 	void dostepneBronie()
     {
 		for (int i = 0; i < 7; i++)
@@ -433,11 +498,16 @@ public class Player2 : MonoBehaviour {
 			}
         }			
     }
+	/// <summary>
+	/// Funkcja, która aktualizuje tablicę dostępnych broni 
+	/// </summary>
 	void pobranieStatusuBroni()
     {
 		idWeaponIsActive = GameObject.Find("Canvas/WyborBroni").GetComponent<OdblokowaneBronie>().status();
 	}
-
+	/// <summary>
+	/// Funkcja, która kończy grę
+	/// </summary>
 	void gameOver()
 	{
 

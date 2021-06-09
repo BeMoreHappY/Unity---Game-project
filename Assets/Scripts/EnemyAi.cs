@@ -1,7 +1,9 @@
 ﻿
 using UnityEngine;
 using UnityEngine.AI;
-
+/// <summary>
+/// Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji)
+/// </summary>
 public class EnemyAi : MonoBehaviour
 {
     public NavMeshAgent agent;
@@ -33,7 +35,9 @@ public class EnemyAi : MonoBehaviour
     public float sightRange, attackRange;
     public bool isSight, isAttack, sawBullet;
     public float impactForce;
-
+    /// <summary>
+    /// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
+    /// </summary>
     private void Start()
     {
         active = true;
@@ -43,24 +47,26 @@ public class EnemyAi : MonoBehaviour
     }
     
         
-    
+    /// <summary>
+    /// Funkcja, która wykonuje się w momencie załadowania sceny z danym obiektem
+    /// </summary>
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
     }
-
+    /// <summary>
+	/// Funkcja, która wykonuje się co klatkę
+	/// </summary>
     private void Update()
     {
-        //Check for sight and attack range
+
         isSight = Physics.CheckSphere(transform.position, sightRange, Player);
         isAttack = Physics.CheckSphere(transform.position, attackRange, Player);
-        //sawBullet = Physics.CheckSphere(transform.position, attackRange, 12); //bullet LayerMask
-        
 
         if (!isSight && !isAttack) Patroling();
         if (isSight && !isAttack) ChasePlayer();
-        //if (sawBullet) ChasePlayer();
+
         RaycastHit hit;
         if (isAttack && isSight)
         {
@@ -84,7 +90,9 @@ public class EnemyAi : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Funkcja, która odpowiada za patrolowanie obiektu po wyznaczonym obszarze
+    /// </summary>
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
@@ -94,13 +102,14 @@ public class EnemyAi : MonoBehaviour
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        //Walkpoint reached
         if (distanceToWalkPoint.magnitude < 1f)
             walkPointSet = false;
     }
+    /// <summary>
+    /// Funkcja, która losuje współrzędne celu obiektu
+    /// </summary>
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
@@ -109,41 +118,49 @@ public class EnemyAi : MonoBehaviour
         if (Physics.Raycast(walkPoint, -transform.up, 2f, Ground))
             walkPointSet = true;
     }
-
+    /// <summary>
+    /// Funkcja, która odpowiada za podążanie obiektu za graczem
+    /// </summary>
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
-
+    /// <summary>
+    /// Funkcja, która odpowiada za atakowanie gracza
+    /// </summary>
     private void AttackPlayer()
     {
         
-        //Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        //transform.LookAt(player);
         Quaternion LookOnPlayer = Quaternion.LookRotation(player.position - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, LookOnPlayer, rotationSpeed * Time.deltaTime);
         if (!alreadyAttacked)
         {
-            ///Attack code here
             Rigidbody rb = Instantiate(bullet, agent.transform.position + agent.transform.forward, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(agent.transform.forward * bulletSpeed);
-            ///End of attack code
 
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
+    /// <summary>
+    /// Funkcja, która ustawia zmianną alreadyAttacked na false
+    /// </summary>
     private void ResetAttack()
     {
         alreadyAttacked = false;
     }
+    /// <summary>
+    /// Funkcja, która niszczy obiekt
+    /// </summary>
     private void DestroyEnemy()
     {
         Destroy(gameObject);
     }
-
+    /// <summary>
+    /// Funkcja, która zmienia kolor sfer obiektu
+    /// </summary>
     private void SphereCollor()
     {
         Gizmos.color = Color.red;
@@ -151,6 +168,10 @@ public class EnemyAi : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+    /// <summary>
+    /// Funkcja, która odpowiada za przyjmowanie obrażeń przez obiekt
+    /// </summary>
+    /// <param name="damage">Ilość obrażeń przyjmowanych przez obiekt</param>
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -160,10 +181,17 @@ public class EnemyAi : MonoBehaviour
             DestroyEnemy();
         }
     }
+    /// <summary>
+    /// Funkcja, która powoduje odrzut obiektu w koinkretnym kierunku
+    /// </summary>
+    /// <param name="kierunek">Kierunek odrzutu obiektu</param>
     public void impact(Vector3 kierunek)
     {
         rigibody.AddForce(kierunek * impactForce);
     }
+    /// <summary>
+    /// Funkcja, która odpowiada za dezaktywowanie obiektu i jego fizyki
+    /// </summary>
     public void agentStop()
     {
         active = false;
@@ -172,15 +200,20 @@ public class EnemyAi : MonoBehaviour
         
         rigibody.isKinematic = false;
     }
+    /// <summary>
+    /// Funkcja, która odpowiada za aktywowanie obiektu i jego fizyki
+    /// </summary>
     public void agentStart()
     {
-       
-        
         active = true;
         agent.isStopped = false;
         walkPointSet = false;
         rigibody.isKinematic = true;
     }
+    /// <summary>
+    /// Funkcja, która sprawdza, czy obiekt jest aktywny
+    /// </summary>
+    /// <returns>Zwraca true jeśli obiekt jest aktywny. Zwraca false w przeciwnym wypadku</returns>
     public bool isActive()
     {
         return active;

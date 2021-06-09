@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Klasa, która odpowiada za obsługę broni
+/// </summary>
 public class GunScript : MonoBehaviour
 {
-    // Start is called before the first frame update
     public GameObject player;
     public Camera fpscam;
     public ParticleSystem muzzleflash;
@@ -15,13 +17,17 @@ public class GunScript : MonoBehaviour
     public GameObject impact;
     private Player2 player2Script;
     public int ammo;
-    
-    
+
+    /// <summary>
+    /// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
+    /// </summary>
     public void Start()
     {
         player2Script = player.GetComponent<Player2>();
     }
-    
+    /// <summary>
+	/// Funkcja, która wykonuje się co klatkę
+	/// </summary>
     void Update()
     {
         if (!player2Script.gameStopped)
@@ -38,7 +44,9 @@ public class GunScript : MonoBehaviour
             }
         }
     }
-
+    /// <summary>
+    /// Funkcja, która odpowiada za strzał z broni
+    /// </summary>
     void Shoot()
     {
         muzzleflash.Play();

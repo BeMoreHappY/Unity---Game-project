@@ -1,24 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Klasa, która odpowiada za obsługę zmiany broni
+/// </summary>
 public class weaponSwitcher : MonoBehaviour
 {
 
     public int weaponSelect = 0;
     public GameObject[] weapon;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Funkcja, która aktywuje lub dezaktywuje broń
+    /// </summary>
+    /// <param name="idWeapon">Przyjmuje ID broni</param>
     public void SwitchWeapon(int idWeapon)
     {
         if (idWeapon != weaponSelect)
