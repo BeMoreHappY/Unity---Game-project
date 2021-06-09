@@ -17,6 +17,7 @@ public class GunScript : MonoBehaviour
     public GameObject impact;
     private Player2 player2Script;
     public int ammo;
+    public TMPro.TextMeshProUGUI ammoText;
 
     /// <summary>
     /// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
@@ -32,6 +33,7 @@ public class GunScript : MonoBehaviour
     {
         if (!player2Script.gameStopped)
         {
+            ammoText.text = ammo.ToString();
             if (Input.GetButton("Fire1") && Time.time >= nextTimeToFire)
             {
                 Debug.Log(ammo);

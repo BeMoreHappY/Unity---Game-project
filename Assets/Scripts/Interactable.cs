@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Abstrakcyjna klasa określająca typy interakcji
+/// </summary>
 public abstract class Interactable : MonoBehaviour
 {
     public enum InteractionType{

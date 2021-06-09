@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Klasa, która odpowiada za interakcje gracza z elementami otoczenia
+/// </summary>
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactionDistance;
@@ -10,12 +12,16 @@ public class PlayerInteraction : MonoBehaviour
 
     Camera cam;
 
-
+    /// <summary>
+    /// Metoda, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany. Pobiera informacje na temat kamery
+    /// </summary>
     void Start()
     {
         cam = GetComponent<Camera>();
     }
-
+    /// <summary>
+    /// Metoda, sprawdzająca czy dochodzi do interakcji
+    /// </summary>
     void Update()
     {
         Ray ray = cam.ScreenPointToRay(new Vector3(Screen.width/2f,Screen.height/2f,0f));
@@ -34,7 +40,9 @@ public class PlayerInteraction : MonoBehaviour
         }
         if (!succesfulHit)interactionText.text = "";
     }
-
+    /// <summary>
+    /// Metoda, obsługująca poszczególne interakcje
+    /// </summary>
     void HandleInteraction(Interactable interactable){
         KeyCode key = KeyCode.E;
         switch (interactable.interactionType)

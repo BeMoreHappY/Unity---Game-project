@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+/// <summary>
+/// Klasa, która odpowiada za obsługę skrzynek
+/// </summary>
 public class Box : Interactable
 {
     public GameObject go;
@@ -15,6 +17,9 @@ public class Box : Interactable
     public string name;
     public int indeks;
 
+    /// <summary>
+    /// Metoda, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany. Pobiera informacje na temat spawnera, gracza i obsługiwanej broni.
+    /// </summary>
     void Start()
     {
         go = GameObject.Find("GameObject (Spawner)");
@@ -23,6 +28,9 @@ public class Box : Interactable
         weap = (Player2) go2.GetComponent(typeof(Player2));
         weap2 = (GunScript) go3.GetComponent(typeof(GunScript));
     }
+    /// <summary>
+    /// Metoda zwracająca tekst do wyświetlenia
+    /// </summary>
     public override string GetDescription(){
         if(weap.idWeaponIsActive[indeks]==false){
             if (spawn.points<=val) return "Press [E] to unclock "+name+" <color=red>" +val.ToString() + "</color>";
@@ -35,6 +43,9 @@ public class Box : Interactable
         }
     }
 
+    /// <summary>
+    /// Metoda obsługująca interakcję z graczem
+    /// </summary>
     public override void Interact(){
         if(weap.idWeaponIsActive[indeks]==false){
             if (spawn.points>=val){
