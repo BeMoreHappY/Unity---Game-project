@@ -1,0 +1,152 @@
+\hypertarget{classEnemyAi}{}\doxysection{Enemy\+Ai Class Reference}
+\label{classEnemyAi}\index{EnemyAi@{EnemyAi}}
+
+
+Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji)  
+
+
+
+
+Inheritance diagram for Enemy\+Ai\+:
+% FIG 0
+
+
+Collaboration diagram for Enemy\+Ai\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classEnemyAi_a8dab217813f3f8f48ec522364db467b9}{Take\+Damage}} (float damage)
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za przyjmowanie obrażeń przez obiekt \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnemyAi_a9ab51d287b262c63afc26d164f2a7acb}{impact}} (Vector3 kierunek)
+\begin{DoxyCompactList}\small\item\em Metoda, która powoduje odrzut obiektu w koinkretnym kierunku \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnemyAi_a85c380f0541bff8facddb308635b777d}{agent\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za dezaktywowanie obiektu i jego fizyki \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEnemyAi_aee854be582e5e076915a867b0ee3bae6}{agent\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za aktywowanie obiektu i jego fizyki \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classEnemyAi_a1f4a13b24971838e083188dca4dacd37}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która sprawdza, czy obiekt jest aktywny \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classEnemyAi_aab0a84c41888a3bf25b4e755b68b241d}\label{classEnemyAi_aab0a84c41888a3bf25b4e755b68b241d}} 
+Nav\+Mesh\+Agent {\bfseries agent}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a91b9979949caced20ed28f7cece4d0e0}\label{classEnemyAi_a91b9979949caced20ed28f7cece4d0e0}} 
+Transform {\bfseries player}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a520b9addd00ff99d993804f4f382bcfd}\label{classEnemyAi_a520b9addd00ff99d993804f4f382bcfd}} 
+Layer\+Mask {\bfseries Ground}
+\item 
+\mbox{\Hypertarget{classEnemyAi_afae57291b13b174c24ee46688bc3904b}\label{classEnemyAi_afae57291b13b174c24ee46688bc3904b}} 
+float {\bfseries health}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a34e4af6b40ad43d5ee8f5f8b8f7693ae}\label{classEnemyAi_a34e4af6b40ad43d5ee8f5f8b8f7693ae}} 
+Game\+Object {\bfseries go}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a7a56d6b2301a4b2a6005d7ad60b16d51}\label{classEnemyAi_a7a56d6b2301a4b2a6005d7ad60b16d51}} 
+\mbox{\hyperlink{classSpawner}{Spawner}} {\bfseries spawn}
+\item 
+\mbox{\Hypertarget{classEnemyAi_af8065ee768b1a37409b5d4d8e89ee457}\label{classEnemyAi_af8065ee768b1a37409b5d4d8e89ee457}} 
+Vector3 {\bfseries walk\+Point}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a381063bee81be55ee03854bc51275d42}\label{classEnemyAi_a381063bee81be55ee03854bc51275d42}} 
+float {\bfseries walk\+Point\+Range}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a9f7cbfbcc4e167e960287229eec12d4b}\label{classEnemyAi_a9f7cbfbcc4e167e960287229eec12d4b}} 
+float {\bfseries bullet\+Speed}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a3b9fb56d986e52760be366f03b2f4a9f}\label{classEnemyAi_a3b9fb56d986e52760be366f03b2f4a9f}} 
+float {\bfseries rotation\+Speed} = 5f
+\item 
+\mbox{\Hypertarget{classEnemyAi_a750f9b46c6f799fe882f1cb631fecb0d}\label{classEnemyAi_a750f9b46c6f799fe882f1cb631fecb0d}} 
+float {\bfseries time\+Between\+Attacks}
+\item 
+\mbox{\Hypertarget{classEnemyAi_aaf425ca058d2891bfdd37953421f3a57}\label{classEnemyAi_aaf425ca058d2891bfdd37953421f3a57}} 
+Game\+Object {\bfseries bullet}
+\item 
+\mbox{\Hypertarget{classEnemyAi_ac94214284b3eaada90c99f1bc165758d}\label{classEnemyAi_ac94214284b3eaada90c99f1bc165758d}} 
+float {\bfseries sight\+Range}
+\item 
+\mbox{\Hypertarget{classEnemyAi_a3602f53e652c08af0f3cc1846c54fc52}\label{classEnemyAi_a3602f53e652c08af0f3cc1846c54fc52}} 
+bool {\bfseries is\+Sight}
+\item 
+\mbox{\Hypertarget{classEnemyAi_af424145dc9d8006de1f6ef67ed1dc12d}\label{classEnemyAi_af424145dc9d8006de1f6ef67ed1dc12d}} 
+float {\bfseries impact\+Force}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji) 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEnemyAi_aee854be582e5e076915a867b0ee3bae6}\label{classEnemyAi_aee854be582e5e076915a867b0ee3bae6}} 
+\index{EnemyAi@{EnemyAi}!agentStart@{agentStart}}
+\index{agentStart@{agentStart}!EnemyAi@{EnemyAi}}
+\doxysubsubsection{\texorpdfstring{agentStart()}{agentStart()}}
+{\footnotesize\ttfamily void Enemy\+Ai.\+agent\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za aktywowanie obiektu i jego fizyki 
+
+\mbox{\Hypertarget{classEnemyAi_a85c380f0541bff8facddb308635b777d}\label{classEnemyAi_a85c380f0541bff8facddb308635b777d}} 
+\index{EnemyAi@{EnemyAi}!agentStop@{agentStop}}
+\index{agentStop@{agentStop}!EnemyAi@{EnemyAi}}
+\doxysubsubsection{\texorpdfstring{agentStop()}{agentStop()}}
+{\footnotesize\ttfamily void Enemy\+Ai.\+agent\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za dezaktywowanie obiektu i jego fizyki 
+
+\mbox{\Hypertarget{classEnemyAi_a9ab51d287b262c63afc26d164f2a7acb}\label{classEnemyAi_a9ab51d287b262c63afc26d164f2a7acb}} 
+\index{EnemyAi@{EnemyAi}!impact@{impact}}
+\index{impact@{impact}!EnemyAi@{EnemyAi}}
+\doxysubsubsection{\texorpdfstring{impact()}{impact()}}
+{\footnotesize\ttfamily void Enemy\+Ai.\+impact (\begin{DoxyParamCaption}\item[{Vector3}]{kierunek }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która powoduje odrzut obiektu w koinkretnym kierunku 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kierunek} & Kierunek odrzutu obiektu\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classEnemyAi_a1f4a13b24971838e083188dca4dacd37}\label{classEnemyAi_a1f4a13b24971838e083188dca4dacd37}} 
+\index{EnemyAi@{EnemyAi}!isActive@{isActive}}
+\index{isActive@{isActive}!EnemyAi@{EnemyAi}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Enemy\+Ai.\+is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która sprawdza, czy obiekt jest aktywny 
+
+\begin{DoxyReturn}{Returns}
+Zwraca true jeśli obiekt jest aktywny. Zwraca false w przeciwnym wypadku
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEnemyAi_a8dab217813f3f8f48ec522364db467b9}\label{classEnemyAi_a8dab217813f3f8f48ec522364db467b9}} 
+\index{EnemyAi@{EnemyAi}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!EnemyAi@{EnemyAi}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Enemy\+Ai.\+Take\+Damage (\begin{DoxyParamCaption}\item[{float}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za przyjmowanie obrażeń przez obiekt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & Ilość obrażeń przyjmowanych przez obiekt\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Enemy\+Ai.\+cs\end{DoxyCompactItemize}

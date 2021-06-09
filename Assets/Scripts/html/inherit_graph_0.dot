@@ -1,0 +1,58 @@
+digraph "Graphical Class Hierarchy"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node2 [label="MonoBehaviour",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node0 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node0 [label="Boss",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBoss.html",tooltip="Klasa służąca do obługi bossa - chwilowo nie działa. SKRYPT W BUDOWIE."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="BossAI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBossAI.html",tooltip="Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji)"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="BulletScriptEnemy",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBulletScriptEnemy.html",tooltip="Klasa, która odpowiada za pocisk przeciwników"];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="buttonFX",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbuttonFX.html",tooltip="Klasa służąca do generowania dźwięków w grze."];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="buttonManager",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classbuttonManager.html",tooltip="Klasa służąca do obsługi guzików interfejsu - głównie drzewa umiejętności i kółka broni."];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="creativeButtons",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classcreativeButtons.html",tooltip=" "];
+  Node2 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="EnemyAi",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classEnemyAi.html",tooltip="Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji)"];
+  Node2 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="GuiSCRIPT",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGuiSCRIPT.html",tooltip=" "];
+  Node2 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="GunScript",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGunScript.html",tooltip="Klasa, która odpowiada za obsługę broni"];
+  Node2 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="HealthBar",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classHealthBar.html",tooltip="Klasa, która odpowiada za obsługę paska zdrowia"];
+  Node2 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node13 [label="Interactable",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classInteractable.html",tooltip="Abstrakcyjna klasa określająca typy interakcji"];
+  Node13 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node14 [label="Box",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBox.html",tooltip="Klasa, która odpowiada za obsługę skrzynek"];
+  Node13 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node15 [label="MedBay",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMedBay.html",tooltip="Klasa, która odpowiada za obsługę stacji medycznej"];
+  Node13 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="NewArea",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNewArea.html",tooltip="Klasa, która odpowiada za odblokowywanie nowych obszarów"];
+  Node2 -> Node17 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="Ladder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classLadder.html",tooltip="Klasa, która odpowiada za obsługę drabiny"];
+  Node2 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="MainMenu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMainMenu.html",tooltip=" "];
+  Node2 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node19 [label="OdblokowaneBronie",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classOdblokowaneBronie.html",tooltip="Klasa, która odpowiada za odblokowywanie broni dla gracza"];
+  Node2 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="PauseMainScript",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPauseMainScript.html",tooltip=" "];
+  Node2 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node21 [label="Player2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPlayer2.html",tooltip="Klasa, która odpowiada za obsługę gracza i jego interfejsu"];
+  Node2 -> Node22 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node22 [label="PlayerInteraction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classPlayerInteraction.html",tooltip="Klasa, która odpowiada za interakcje gracza z elementami otoczenia"];
+  Node2 -> Node23 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node23 [label="SferaPaczaniaCelu",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSferaPaczaniaCelu.html",tooltip=" "];
+  Node2 -> Node24 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 [label="Spawner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classSpawner.html",tooltip="Klasa, która odpowiada za spawn przeciwników i punkty gracza"];
+  Node2 -> Node25 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="targetScript",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classtargetScript.html",tooltip=" "];
+  Node2 -> Node26 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node26 [label="WaveCount",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classWaveCount.html",tooltip=" "];
+  Node2 -> Node27 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node27 [label="weaponSwitcher",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classweaponSwitcher.html",tooltip="Klasa, która odpowiada za obsługę zmiany broni"];
+}

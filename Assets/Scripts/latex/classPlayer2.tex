@@ -1,0 +1,148 @@
+\hypertarget{classPlayer2}{}\doxysection{Player2 Class Reference}
+\label{classPlayer2}\index{Player2@{Player2}}
+
+
+Klasa, która odpowiada za obsługę gracza i jego interfejsu  
+
+
+
+
+Inheritance diagram for Player2\+:
+% FIG 0
+
+
+Collaboration diagram for Player2\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPlayer2_1_1InterfaceElements}{Interface\+Elements}}
+\begin{DoxyCompactList}\small\item\em Struktura, która przechowuje zmienne interfejsu. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structPlayer2_1_1PlayerMovement}{Player\+Movement}}
+\begin{DoxyCompactList}\small\item\em Struktura, która przechowuje zmienne ruchu gracza. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPlayer2_a842d469db88e2d5af1bc0323971b0f48}{Take\+Damage}} (int damage)
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za otrzymywanie obrażeń przez gracza \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer2_ad962b5bf1bbcb99a0097293e2bf35ae7}{Heal}} (int heal)
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za leczenie gracza \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer2_ae1fb7175639a6d6fb806122c42592d0c}{Resume\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za wznawianie gry \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer2_af56f8cb8c569e2947167413840a8f9e0}{skills\+Tree\+Buttons\+Action}} (int button\+ID)
+\begin{DoxyCompactList}\small\item\em Finkcja która odpowiada za zwiększanie statystyk umiejętności \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPlayer2_a390c7b2f35311f80fcd67aa3fc3d9257}{weapon\+Choose\+Panel\+Action}} (int button\+ID)
+\begin{DoxyCompactList}\small\item\em Metoda, która zmienia broń przeciwnika \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPlayer2_ac6b7f0b657706c094730d3e5011b3b73}\label{classPlayer2_ac6b7f0b657706c094730d3e5011b3b73}} 
+Camera {\bfseries cam}
+\item 
+\mbox{\Hypertarget{classPlayer2_ab04456ca739db2329ff35a354c64f08d}\label{classPlayer2_ab04456ca739db2329ff35a354c64f08d}} 
+Layer\+Mask {\bfseries Ground\+Mask}
+\item 
+\mbox{\Hypertarget{classPlayer2_a7b6004683441f8b7e99916fc0ed9c422}\label{classPlayer2_a7b6004683441f8b7e99916fc0ed9c422}} 
+Game\+Object {\bfseries Ground\+Check}
+\item 
+\mbox{\Hypertarget{classPlayer2_aa09ebe60e1e90d00f7e9a41a1fee6536}\label{classPlayer2_aa09ebe60e1e90d00f7e9a41a1fee6536}} 
+\mbox{\hyperlink{classHealthBar}{Health\+Bar}} {\bfseries health\+Bar}
+\item 
+\mbox{\Hypertarget{classPlayer2_a1df12df87e65fbafc3d17c1938a43e0b}\label{classPlayer2_a1df12df87e65fbafc3d17c1938a43e0b}} 
+int {\bfseries skill\+Points} = 15
+\item 
+\mbox{\Hypertarget{classPlayer2_ac11623b9cf07b8bc9675746d6ee80cee}\label{classPlayer2_ac11623b9cf07b8bc9675746d6ee80cee}} 
+int {\bfseries max\+Health} = 100
+\item 
+\mbox{\Hypertarget{classPlayer2_a82685779e37e0ddb1271fce548354c85}\label{classPlayer2_a82685779e37e0ddb1271fce548354c85}} 
+Game\+Object {\bfseries weapon}
+\item 
+\mbox{\Hypertarget{classPlayer2_af3bac7cba3af750600b9a7f110250f79}\label{classPlayer2_af3bac7cba3af750600b9a7f110250f79}} 
+bool {\bfseries game\+Stopped} = false
+\item 
+\mbox{\Hypertarget{classPlayer2_a2871dbad936bd11281cb67b49766a25b}\label{classPlayer2_a2871dbad936bd11281cb67b49766a25b}} 
+bool\mbox{[}$\,$\mbox{]} {\bfseries id\+Weapon\+Is\+Active} = new bool\mbox{[}7\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa, która odpowiada za obsługę gracza i jego interfejsu 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPlayer2_ad962b5bf1bbcb99a0097293e2bf35ae7}\label{classPlayer2_ad962b5bf1bbcb99a0097293e2bf35ae7}} 
+\index{Player2@{Player2}!Heal@{Heal}}
+\index{Heal@{Heal}!Player2@{Player2}}
+\doxysubsubsection{\texorpdfstring{Heal()}{Heal()}}
+{\footnotesize\ttfamily void Player2.\+Heal (\begin{DoxyParamCaption}\item[{int}]{heal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za leczenie gracza 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heal} & Ilość dodawanych punktów życia\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer2_ae1fb7175639a6d6fb806122c42592d0c}\label{classPlayer2_ae1fb7175639a6d6fb806122c42592d0c}} 
+\index{Player2@{Player2}!ResumeGame@{ResumeGame}}
+\index{ResumeGame@{ResumeGame}!Player2@{Player2}}
+\doxysubsubsection{\texorpdfstring{ResumeGame()}{ResumeGame()}}
+{\footnotesize\ttfamily void Player2.\+Resume\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za wznawianie gry 
+
+\mbox{\Hypertarget{classPlayer2_af56f8cb8c569e2947167413840a8f9e0}\label{classPlayer2_af56f8cb8c569e2947167413840a8f9e0}} 
+\index{Player2@{Player2}!skillsTreeButtonsAction@{skillsTreeButtonsAction}}
+\index{skillsTreeButtonsAction@{skillsTreeButtonsAction}!Player2@{Player2}}
+\doxysubsubsection{\texorpdfstring{skillsTreeButtonsAction()}{skillsTreeButtonsAction()}}
+{\footnotesize\ttfamily void Player2.\+skills\+Tree\+Buttons\+Action (\begin{DoxyParamCaption}\item[{int}]{button\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Finkcja która odpowiada za zwiększanie statystyk umiejętności 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button\+ID} & Przyjmuje ID wcyśniętego przycisku\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer2_a842d469db88e2d5af1bc0323971b0f48}\label{classPlayer2_a842d469db88e2d5af1bc0323971b0f48}} 
+\index{Player2@{Player2}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!Player2@{Player2}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Player2.\+Take\+Damage (\begin{DoxyParamCaption}\item[{int}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za otrzymywanie obrażeń przez gracza 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & Ilość obrażeń otrzymanych przez gracza\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPlayer2_a390c7b2f35311f80fcd67aa3fc3d9257}\label{classPlayer2_a390c7b2f35311f80fcd67aa3fc3d9257}} 
+\index{Player2@{Player2}!weaponChoosePanelAction@{weaponChoosePanelAction}}
+\index{weaponChoosePanelAction@{weaponChoosePanelAction}!Player2@{Player2}}
+\doxysubsubsection{\texorpdfstring{weaponChoosePanelAction()}{weaponChoosePanelAction()}}
+{\footnotesize\ttfamily void Player2.\+weapon\+Choose\+Panel\+Action (\begin{DoxyParamCaption}\item[{int}]{button\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która zmienia broń przeciwnika 
+
+
+\begin{DoxyParams}{Parameters}
+{\em button\+ID} & Przyjmuje ID broni\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Player2.\+cs\end{DoxyCompactItemize}

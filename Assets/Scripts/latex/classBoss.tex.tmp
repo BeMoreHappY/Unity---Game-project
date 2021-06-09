@@ -1,0 +1,58 @@
+\hypertarget{classBoss}{}\doxysection{Boss Class Reference}
+\label{classBoss}\index{Boss@{Boss}}
+
+
+Klasa służąca do obługi bossa -\/ chwilowo nie działa. S\+K\+R\+Y\+PT W B\+U\+D\+O\+W\+IE.  
+
+
+
+
+Inheritance diagram for Boss\+:
+% FIG 0
+
+
+Collaboration diagram for Boss\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBoss_a5b5a681eab6666240f4791288028e508}\label{classBoss_a5b5a681eab6666240f4791288028e508}} 
+void {\bfseries enemy\+Died} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBoss_acf850a4dfabd3600832b1abd4c66e19c}\label{classBoss_acf850a4dfabd3600832b1abd4c66e19c}} 
+Transform\mbox{[}$\,$\mbox{]} {\bfseries spawn\+Locations}
+\item 
+\mbox{\Hypertarget{classBoss_a74cc62c6612b83a2b1f41c61a0c737f5}\label{classBoss_a74cc62c6612b83a2b1f41c61a0c737f5}} 
+Game\+Object\mbox{[}$\,$\mbox{]} {\bfseries what\+To\+Spawn\+Prefab}
+\item 
+\mbox{\Hypertarget{classBoss_a4db7df3f2d2e93c597a8d5110820902d}\label{classBoss_a4db7df3f2d2e93c597a8d5110820902d}} 
+Game\+Object\mbox{[}$\,$\mbox{]} {\bfseries what\+To\+Spawn\+Clone}
+\item 
+\mbox{\Hypertarget{classBoss_a60131c08dd0ade3210be1839c113d69b}\label{classBoss_a60131c08dd0ade3210be1839c113d69b}} 
+T\+M\+Pro.\+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries interaction\+Text}
+\item 
+\mbox{\Hypertarget{classBoss_ab94cd01fa06fc61df89e9cc648cb0766}\label{classBoss_ab94cd01fa06fc61df89e9cc648cb0766}} 
+T\+M\+Pro.\+Text\+Mesh\+Pro\+U\+G\+UI {\bfseries wave\+Text}
+\item 
+\mbox{\Hypertarget{classBoss_a2da82a640ab71b1e0ce3ca4e11deee42}\label{classBoss_a2da82a640ab71b1e0ce3ca4e11deee42}} 
+Game\+Object {\bfseries go}
+\item 
+\mbox{\Hypertarget{classBoss_ae9492705c589a8068dc59b2927cead83}\label{classBoss_ae9492705c589a8068dc59b2927cead83}} 
+\mbox{\hyperlink{classSpawner}{Spawner}} {\bfseries spawner}
+\item 
+\mbox{\Hypertarget{classBoss_abedb2d50f29c2156aa8749b6b7b35803}\label{classBoss_abedb2d50f29c2156aa8749b6b7b35803}} 
+int {\bfseries enemies}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa służąca do obługi bossa -\/ chwilowo nie działa. S\+K\+R\+Y\+PT W B\+U\+D\+O\+W\+IE. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Boss.\+cs\end{DoxyCompactItemize}

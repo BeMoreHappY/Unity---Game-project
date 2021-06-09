@@ -1,0 +1,152 @@
+\hypertarget{classBossAI}{}\doxysection{Boss\+AI Class Reference}
+\label{classBossAI}\index{BossAI@{BossAI}}
+
+
+Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji)  
+
+
+
+
+Inheritance diagram for Boss\+AI\+:
+% FIG 0
+
+
+Collaboration diagram for Boss\+AI\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBossAI_a180658079f75674b62d8c14d15e5860f}{Take\+Damage}} (float damage)
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za przyjmowanie obrażeń przez obiekt \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBossAI_a35aa4d85b7300657f2b5b3952d68eb27}{impact}} (Vector3 kierunek)
+\begin{DoxyCompactList}\small\item\em Metoda, która powoduje odrzut obiektu w koinkretnym kierunku \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBossAI_a28b4e0273c9a19b52c23617b066df7f1}{agent\+Stop}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za dezaktywowanie obiektu i jego fizyki \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classBossAI_ac6e78dab2b04c76a208885533881ce94}{agent\+Start}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która odpowiada za aktywowanie obiektu i jego fizyki \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classBossAI_a65904de202f41b803968bbef8cfdd058}{is\+Active}} ()
+\begin{DoxyCompactList}\small\item\em Metoda, która sprawdza, czy obiekt jest aktywny \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classBossAI_a879d5c33257a6fc59c98ae3679d8f78a}\label{classBossAI_a879d5c33257a6fc59c98ae3679d8f78a}} 
+Nav\+Mesh\+Agent {\bfseries agent}
+\item 
+\mbox{\Hypertarget{classBossAI_a8ae975f1c0824363e91904607aa4aefd}\label{classBossAI_a8ae975f1c0824363e91904607aa4aefd}} 
+Transform {\bfseries player}
+\item 
+\mbox{\Hypertarget{classBossAI_a7ca05ac18bd18829b8e723c0a0c8188f}\label{classBossAI_a7ca05ac18bd18829b8e723c0a0c8188f}} 
+Layer\+Mask {\bfseries Ground}
+\item 
+\mbox{\Hypertarget{classBossAI_a0dafae68c726e521648eb45aa28568f2}\label{classBossAI_a0dafae68c726e521648eb45aa28568f2}} 
+float {\bfseries health}
+\item 
+\mbox{\Hypertarget{classBossAI_a0cde038453cc89dc68196ddf0fb02c47}\label{classBossAI_a0cde038453cc89dc68196ddf0fb02c47}} 
+Game\+Object {\bfseries go}
+\item 
+\mbox{\Hypertarget{classBossAI_a5a88f86461fcb1661c02668db667113c}\label{classBossAI_a5a88f86461fcb1661c02668db667113c}} 
+\mbox{\hyperlink{classBoss}{Boss}} {\bfseries spawn}
+\item 
+\mbox{\Hypertarget{classBossAI_a67fc960b50ec2761792fa767c7c66b07}\label{classBossAI_a67fc960b50ec2761792fa767c7c66b07}} 
+Vector3 {\bfseries walk\+Point}
+\item 
+\mbox{\Hypertarget{classBossAI_a497f96a0f00568705b03c9845847655c}\label{classBossAI_a497f96a0f00568705b03c9845847655c}} 
+float {\bfseries walk\+Point\+Range}
+\item 
+\mbox{\Hypertarget{classBossAI_ac65c7c4b64786a5f8939ed166e429770}\label{classBossAI_ac65c7c4b64786a5f8939ed166e429770}} 
+float {\bfseries bullet\+Speed}
+\item 
+\mbox{\Hypertarget{classBossAI_a52efdc7283c13468e2e9c613049bcf96}\label{classBossAI_a52efdc7283c13468e2e9c613049bcf96}} 
+float {\bfseries rotation\+Speed} = 5f
+\item 
+\mbox{\Hypertarget{classBossAI_a5ae06366befcd2d09f32637abc854c09}\label{classBossAI_a5ae06366befcd2d09f32637abc854c09}} 
+float {\bfseries time\+Between\+Attacks}
+\item 
+\mbox{\Hypertarget{classBossAI_a14dab3bb8823a88e3fb9c4e6c892d280}\label{classBossAI_a14dab3bb8823a88e3fb9c4e6c892d280}} 
+Game\+Object {\bfseries bullet}
+\item 
+\mbox{\Hypertarget{classBossAI_ae78469eca2b065c8068844a3644c153a}\label{classBossAI_ae78469eca2b065c8068844a3644c153a}} 
+float {\bfseries sight\+Range}
+\item 
+\mbox{\Hypertarget{classBossAI_a331fc8e08e6141b9596416f5caded063}\label{classBossAI_a331fc8e08e6141b9596416f5caded063}} 
+bool {\bfseries is\+Sight}
+\item 
+\mbox{\Hypertarget{classBossAI_a9f47a40049e275518bdd6caab494b5ef}\label{classBossAI_a9f47a40049e275518bdd6caab494b5ef}} 
+float {\bfseries impact\+Force}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasa, która odpowiada za obsługę przeciwnika (jego sztucznej inteligencji) 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBossAI_ac6e78dab2b04c76a208885533881ce94}\label{classBossAI_ac6e78dab2b04c76a208885533881ce94}} 
+\index{BossAI@{BossAI}!agentStart@{agentStart}}
+\index{agentStart@{agentStart}!BossAI@{BossAI}}
+\doxysubsubsection{\texorpdfstring{agentStart()}{agentStart()}}
+{\footnotesize\ttfamily void Boss\+A\+I.\+agent\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za aktywowanie obiektu i jego fizyki 
+
+\mbox{\Hypertarget{classBossAI_a28b4e0273c9a19b52c23617b066df7f1}\label{classBossAI_a28b4e0273c9a19b52c23617b066df7f1}} 
+\index{BossAI@{BossAI}!agentStop@{agentStop}}
+\index{agentStop@{agentStop}!BossAI@{BossAI}}
+\doxysubsubsection{\texorpdfstring{agentStop()}{agentStop()}}
+{\footnotesize\ttfamily void Boss\+A\+I.\+agent\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za dezaktywowanie obiektu i jego fizyki 
+
+\mbox{\Hypertarget{classBossAI_a35aa4d85b7300657f2b5b3952d68eb27}\label{classBossAI_a35aa4d85b7300657f2b5b3952d68eb27}} 
+\index{BossAI@{BossAI}!impact@{impact}}
+\index{impact@{impact}!BossAI@{BossAI}}
+\doxysubsubsection{\texorpdfstring{impact()}{impact()}}
+{\footnotesize\ttfamily void Boss\+A\+I.\+impact (\begin{DoxyParamCaption}\item[{Vector3}]{kierunek }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która powoduje odrzut obiektu w koinkretnym kierunku 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kierunek} & Kierunek odrzutu obiektu\\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classBossAI_a65904de202f41b803968bbef8cfdd058}\label{classBossAI_a65904de202f41b803968bbef8cfdd058}} 
+\index{BossAI@{BossAI}!isActive@{isActive}}
+\index{isActive@{isActive}!BossAI@{BossAI}}
+\doxysubsubsection{\texorpdfstring{isActive()}{isActive()}}
+{\footnotesize\ttfamily bool Boss\+A\+I.\+is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która sprawdza, czy obiekt jest aktywny 
+
+\begin{DoxyReturn}{Returns}
+Zwraca true jeśli obiekt jest aktywny. Zwraca false w przeciwnym wypadku
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBossAI_a180658079f75674b62d8c14d15e5860f}\label{classBossAI_a180658079f75674b62d8c14d15e5860f}} 
+\index{BossAI@{BossAI}!TakeDamage@{TakeDamage}}
+\index{TakeDamage@{TakeDamage}!BossAI@{BossAI}}
+\doxysubsubsection{\texorpdfstring{TakeDamage()}{TakeDamage()}}
+{\footnotesize\ttfamily void Boss\+A\+I.\+Take\+Damage (\begin{DoxyParamCaption}\item[{float}]{damage }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Metoda, która odpowiada za przyjmowanie obrażeń przez obiekt 
+
+
+\begin{DoxyParams}{Parameters}
+{\em damage} & Ilość obrażeń przyjmowanych przez obiekt\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Boss\+A\+I.\+cs\end{DoxyCompactItemize}

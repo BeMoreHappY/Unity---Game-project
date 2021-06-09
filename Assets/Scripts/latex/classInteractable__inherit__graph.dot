@@ -1,0 +1,15 @@
+digraph "Interactable"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="Interactable",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Abstrakcyjna klasa określająca typy interakcji"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="MonoBehaviour",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Box",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classBox.html",tooltip="Klasa, która odpowiada za obsługę skrzynek"];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="MedBay",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classMedBay.html",tooltip="Klasa, która odpowiada za obsługę stacji medycznej"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="NewArea",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classNewArea.html",tooltip="Klasa, która odpowiada za odblokowywanie nowych obszarów"];
+}
