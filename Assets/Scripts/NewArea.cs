@@ -23,8 +23,8 @@ public class NewArea : Interactable
     /// Metoda zwracająca tekst do wyświetlenia
     /// </summary>
     public override string GetDescription(){
-        if (spawn.points<=val) return "Press [E] to unclock <color=red>" +val.ToString() + "</color>";
-        return "Press [E] to unclock <color=green>" +val.ToString() + "</color>";
+        if (spawn.points<val) return "Press [E] to unclock <color=red>" + val.ToString() + "</color>";
+        return "Press [E] to unclock <color=green>" + val.ToString() + "</color>";
     }
     /// <summary>
     /// Metoda obsługująca interakcję z graczem

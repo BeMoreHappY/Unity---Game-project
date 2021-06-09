@@ -36,7 +36,7 @@ public class EnemyAi : MonoBehaviour
     public bool isSight, isAttack, sawBullet;
     public float impactForce;
     /// <summary>
-    /// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
+    /// Metoda, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
     /// </summary>
     private void Start()
     {
@@ -48,7 +48,7 @@ public class EnemyAi : MonoBehaviour
     
         
     /// <summary>
-    /// Funkcja, która wykonuje się w momencie załadowania sceny z danym obiektem
+    /// Metoda, która wykonuje się w momencie załadowania sceny z danym obiektem
     /// </summary>
     private void Awake()
     {
@@ -56,7 +56,7 @@ public class EnemyAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
     /// <summary>
-	/// Funkcja, która wykonuje się co klatkę
+	/// Metoda, która wykonuje się co klatkę
 	/// </summary>
     private void Update()
     {
@@ -91,7 +91,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
     /// <summary>
-    /// Funkcja, która odpowiada za patrolowanie obiektu po wyznaczonym obszarze
+    /// Metoda, która odpowiada za patrolowanie obiektu po wyznaczonym obszarze
     /// </summary>
     private void Patroling()
     {
@@ -106,7 +106,7 @@ public class EnemyAi : MonoBehaviour
             walkPointSet = false;
     }
     /// <summary>
-    /// Funkcja, która losuje współrzędne celu obiektu
+    /// Metoda, która losuje współrzędne celu obiektu
     /// </summary>
     private void SearchWalkPoint()
     {
@@ -119,14 +119,14 @@ public class EnemyAi : MonoBehaviour
             walkPointSet = true;
     }
     /// <summary>
-    /// Funkcja, która odpowiada za podążanie obiektu za graczem
+    /// Metoda, która odpowiada za podążanie obiektu za graczem
     /// </summary>
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
     }
     /// <summary>
-    /// Funkcja, która odpowiada za atakowanie gracza
+    /// Metoda, która odpowiada za atakowanie gracza
     /// </summary>
     private void AttackPlayer()
     {
@@ -145,21 +145,21 @@ public class EnemyAi : MonoBehaviour
         }
     }
     /// <summary>
-    /// Funkcja, która ustawia zmianną alreadyAttacked na false
+    /// Metoda, która ustawia zmianną alreadyAttacked na false
     /// </summary>
     private void ResetAttack()
     {
         alreadyAttacked = false;
     }
     /// <summary>
-    /// Funkcja, która niszczy obiekt
+    /// Metoda, która niszczy obiekt
     /// </summary>
     private void DestroyEnemy()
     {
         Destroy(gameObject);
     }
     /// <summary>
-    /// Funkcja, która zmienia kolor sfer obiektu
+    /// Metoda, która zmienia kolor sfer obiektu
     /// </summary>
     private void SphereCollor()
     {
@@ -169,7 +169,7 @@ public class EnemyAi : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
     /// <summary>
-    /// Funkcja, która odpowiada za przyjmowanie obrażeń przez obiekt
+    /// Metoda, która odpowiada za przyjmowanie obrażeń przez obiekt
     /// </summary>
     /// <param name="damage">Ilość obrażeń przyjmowanych przez obiekt</param>
     public void TakeDamage(float damage)
@@ -182,7 +182,7 @@ public class EnemyAi : MonoBehaviour
         }
     }
     /// <summary>
-    /// Funkcja, która powoduje odrzut obiektu w koinkretnym kierunku
+    /// Metoda, która powoduje odrzut obiektu w koinkretnym kierunku
     /// </summary>
     /// <param name="kierunek">Kierunek odrzutu obiektu</param>
     public void impact(Vector3 kierunek)
@@ -190,7 +190,7 @@ public class EnemyAi : MonoBehaviour
         rigibody.AddForce(kierunek * impactForce);
     }
     /// <summary>
-    /// Funkcja, która odpowiada za dezaktywowanie obiektu i jego fizyki
+    /// Metoda, która odpowiada za dezaktywowanie obiektu i jego fizyki
     /// </summary>
     public void agentStop()
     {
@@ -201,7 +201,7 @@ public class EnemyAi : MonoBehaviour
         rigibody.isKinematic = false;
     }
     /// <summary>
-    /// Funkcja, która odpowiada za aktywowanie obiektu i jego fizyki
+    /// Metoda, która odpowiada za aktywowanie obiektu i jego fizyki
     /// </summary>
     public void agentStart()
     {
@@ -211,7 +211,7 @@ public class EnemyAi : MonoBehaviour
         rigibody.isKinematic = true;
     }
     /// <summary>
-    /// Funkcja, która sprawdza, czy obiekt jest aktywny
+    /// Metoda, która sprawdza, czy obiekt jest aktywny
     /// </summary>
     /// <returns>Zwraca true jeśli obiekt jest aktywny. Zwraca false w przeciwnym wypadku</returns>
     public bool isActive()

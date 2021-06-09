@@ -33,12 +33,12 @@ public class Box : Interactable
     /// </summary>
     public override string GetDescription(){
         if(weap.idWeaponIsActive[indeks]==false){
-            if (spawn.points<=val) return "Press [E] to unclock "+name+" <color=red>" +val.ToString() + "</color>";
+            if (spawn.points<val) return "Press [E] to unclock "+name+" <color=red>" +val.ToString() + "</color>";
             return "Press [E] to unclock "+name+" <color=green>" +val.ToString() + "</color>";
         }
         else
         {
-            if (spawn.points<=val2) return "Press [E] to add 10 ammo to "+name+" <color=red>" +val2.ToString() + "</color>";
+            if (spawn.points<val2) return "Press [E] to add 10 ammo to "+name+" <color=red>" +val2.ToString() + "</color>";
             return "Press [E] to add 10 ammo to "+name+" <color=green>" +val2.ToString() + "</color>";
         }
     }

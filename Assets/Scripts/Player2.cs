@@ -50,6 +50,8 @@ public class Player2 : MonoBehaviour {
 	private bool grounded = false;
 	private float RotationX;
 	private float RotationY;
+	private bool jumped = false;
+	private bool dashed = false;
 	public GameObject weapon;
 	
 	private float ButtonCooldownW = 0.3F;
@@ -69,12 +71,14 @@ public class Player2 : MonoBehaviour {
 	public bool[] idWeaponIsActive = new bool[7];
 
 	/// <summary>
-	/// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
+	/// Metoda, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
 	/// </summary>
 	void Start() 
 	{
+		
 		idWeaponIsActive[0] = true;
 		startingStats();
+		
         RB = GetComponent<Rigidbody>();
 	    RB.freezeRotation = true;
 	    RB.useGravity = false;
@@ -85,7 +89,7 @@ public class Player2 : MonoBehaviour {
       	healthBar.MaxHealth(currentHealth);
 	}
 	/// <summary>
-	/// Funkcja, która wykonuje się co klatkę
+	/// Metoda, która wykonuje się co klatkę
 	/// </summary>
 	void Update()
 	{
@@ -94,17 +98,24 @@ public class Player2 : MonoBehaviour {
 		if(currentHealth==0)gameOver();
 	}
 	/// <summary>
-	/// Funkcja, która wykonuje się co klatkę fizyki
+	/// Metoda, która wykonuje się co klatkę fizyki
 	/// </summary>
 	void FixedUpdate() 
 	{
+		
 		if (!gameStopped)
 		{
-			if (is_grounded()){
-				jumpCount = stats.maxJump;
-				dashCount = stats.maxDash;
+			if (jumped && is_grounded())
+			{
+				jumped = false;
+				resetJump();
+				//Invoke(nameof(resetJump), 0.01f);
 			}
-			
+			if (dashed)
+            {
+				dashed = false;
+				Invoke(nameof(resetDash), 0.5f);
+            }
 			Dash();
 			Jump();
 			Movement();
@@ -112,12 +123,13 @@ public class Player2 : MonoBehaviour {
 		}
 	}
 	/// <summary>
-	/// Funkcja, która wykonuje się po innych metodach aktualizacji
+	/// Metoda, która wykonuje się po innych metodach aktualizacji
 	/// </summary>
 	void LateUpdate()
 	{
 		if (!gameStopped)
 		{
+			
 			MouseInput();
 			if (stats.smooth){
 				transform.localRotation = Quaternion.Slerp(transform.localRotation, quatRotationX, Time.deltaTime * stats.smooth_mouseSens);
@@ -127,11 +139,12 @@ public class Player2 : MonoBehaviour {
 				transform.localRotation = quatRotationX;
 				cam.transform.localRotation = quatRotationY;
 			}
+			
 		}
 	}
 	
 	/// <summary>
-	/// Funkcja, która odpowiada za ruch postaci
+	/// Metoda, która odpowiada za ruch postaci
 	/// </summary>
 	private void Movement()
 	{
@@ -144,36 +157,35 @@ public class Player2 : MonoBehaviour {
 		velocityChange.z = Mathf.Clamp(velocityChange.z, -maxVelocityChange, maxVelocityChange);
 		velocityChange.y = 0;
 		RB.AddForce(velocityChange, ForceMode.VelocityChange);
-		
 	}
 	/// <summary>
-	/// Funkcja, która odpowiada za skok postaci
+	/// Metoda, która odpowiada za skok postaci
 	/// </summary>
 	private void Jump()
 	{
 		if (spacePressed) 
 		{
-			Debug.Log("JUmp; JumpCount: "+jumpCount+"; MaxJUMP: "+stats.maxJump);
 			spacePressed = false;
 			RB.velocity = new Vector3(velocity.x, CalculateVerticalSpeed(), velocity.z);
-			jumpCount--;
+			Invoke(nameof(Jumped), 0.2f);
 		}
 	}
 	/// <summary>
-	/// Funkcja, która odpowiada za nadanie nagłego pędu w konkretnym kierunku
+	/// Metoda, która odpowiada za nadanie nagłego pędu w konkretnym kierunku
 	/// </summary>
 	private void Dash()
 	{
 		if (dash && dashCount > 0)
 		{
 			dash = false;
+			dashed = true;
 			kierunek = kierunek.normalized;
 			RB.AddForce(kierunek * stats.dashForce, ForceMode.Impulse);
 			dashCount--;
 		}
 	}
 	/// <summary>
-	/// Funkcja, która sprawdza przyciski z klawiatury
+	/// Metoda, która sprawdza przyciski z klawiatury
 	/// </summary>
 	private void ButtonCheck()
 	{
@@ -248,7 +260,7 @@ public class Player2 : MonoBehaviour {
 		
 		if (Input.GetKeyDown(KeyCode.Space) && (jumpCount > 0))
 		{
-			//jumpCount--;
+			jumpCount--;
 			spacePressed = true;
 		}
 		
@@ -266,7 +278,7 @@ public class Player2 : MonoBehaviour {
 		}
 	}
 	/// <summary>
-	/// Funkcja, ktróra zajmuje się ruchem myszki
+	/// Metoda, ktróra zajmuje się ruchem myszki
 	/// </summary>
 	private void MouseInput()
 	{
@@ -278,7 +290,7 @@ public class Player2 : MonoBehaviour {
 		quatRotationX = Quaternion.Euler(0, RotationY, 0);
 	}
 	/// <summary>
-	/// Funkcja, która odpowiada za otrzymywanie obrażeń przez gracza
+	/// Metoda, która odpowiada za otrzymywanie obrażeń przez gracza
 	/// </summary>
 	/// <param name="damage">Ilość obrażeń otrzymanych przez gracza</param>
 	public void TakeDamage(int damage)
@@ -287,7 +299,7 @@ public class Player2 : MonoBehaviour {
 		healthBar.SetHealth(currentHealth);
 	}
 	/// <summary>
-	/// Funkcja, która odpowiada za leczenie gracza
+	/// Metoda, która odpowiada za leczenie gracza
 	/// </summary>
 	/// <param name="heal">Ilość dodawanych punktów życia</param>
 	public void Heal(int heal){
@@ -296,7 +308,7 @@ public class Player2 : MonoBehaviour {
 		healthBar.SetHealth(currentHealth);
 	}
 	/// <summary>
-	/// Funkcja, która oblicza prędkość wertykalną gracza
+	/// Metoda, która oblicza prędkość wertykalną gracza
 	/// </summary>
 	/// <returns>Zwraca prędkość wertykalną</returns>
 	float CalculateVerticalSpeed() 
@@ -304,7 +316,7 @@ public class Player2 : MonoBehaviour {
 	    return Mathf.Sqrt(2 * stats.jumpForce * -Physics.gravity.y);
 	}
 	/// <summary>
-	/// Funkcja, która sprawdza, czy gracz na czymś stoi
+	/// Metoda, która sprawdza, czy gracz na czymś stoi
 	/// </summary>
 	/// <returns>Zwraca true jeśli stoi na czymś. Zwraca false w przeciwnym wypadku</returns>
 	bool is_grounded()
@@ -315,7 +327,7 @@ public class Player2 : MonoBehaviour {
 		return true; 
 	}
 	/// <summary>
-	/// Funkcja, która oblicza opóźnienie między wciskaniem przycisku
+	/// Metoda, która oblicza opóźnienie między wciskaniem przycisku
 	/// </summary>
 	private void CooldownDash()
 	{
@@ -336,21 +348,7 @@ public class Player2 : MonoBehaviour {
 		}
 		else{ButtonCountD=0;}
 	}
-	/// <summary>
-	/// Funkcja, która nadaje początkowe wartości zmiennym ruchu.
-	/// </summary>
-	private void startingStats()
-	{
-		stats.mouseSens = 1.0f;
-		stats.smooth_mouseSens = 10.0f;
-		stats.jumpForce = 2.5f;
-		stats.moveSpeed = 10.0f;
-		stats.runSpeed = 1.5f;
-		stats.maxJump = 1;
-		stats.maxDash = 1;
-		stats.dashForce = 0;
-		currentSpeed = stats.moveSpeed;
-	}
+
 	/// <summary>
 	/// Funckja, która odpowiada za wyświetlanie okna pauzy
 	/// </summary>
@@ -364,7 +362,7 @@ public class Player2 : MonoBehaviour {
 		interfaceElements.UiPlayer.SetActive(false);
 	}
 	/// <summary>
-	/// Funkcja, która odpowiada za wyświetlenie okna wyboru broni
+	/// Metoda, która odpowiada za wyświetlenie okna wyboru broni
 	/// </summary>
 	private void showWeaponMenu()
 	{
@@ -378,7 +376,7 @@ public class Player2 : MonoBehaviour {
 		Cursor.lockState = CursorLockMode.None;   
 	}
 	/// <summary>
-	/// Funkcja, która odpowiada za wznawianie gry
+	/// Metoda, która odpowiada za wznawianie gry
 	/// </summary>
 	public void ResumeGame()
 	{
@@ -449,7 +447,7 @@ public class Player2 : MonoBehaviour {
 		}
 	}
 	/// <summary>
-	/// Funkcja, która zmienia broń przeciwnika
+	/// Metoda, która zmienia broń przeciwnika
 	/// </summary>
 	/// <param name="buttonID">Przyjmuje ID broni</param>
 	public void weaponChoosePanelAction(int buttonID)
@@ -482,7 +480,7 @@ public class Player2 : MonoBehaviour {
 		}
 	}
 	/// <summary>
-	/// Funkcja, która odblokowuje lub blokuje bronie na podstawie tablicy bool - idWeaponIsActive
+	/// Metoda, która odblokowuje lub blokuje bronie na podstawie tablicy bool - idWeaponIsActive
 	/// </summary>
 	void dostepneBronie()
     {
@@ -499,18 +497,58 @@ public class Player2 : MonoBehaviour {
         }			
     }
 	/// <summary>
-	/// Funkcja, która aktualizuje tablicę dostępnych broni 
+	/// Metoda, która aktualizuje tablicę dostępnych broni 
 	/// </summary>
 	void pobranieStatusuBroni()
     {
 		idWeaponIsActive = GameObject.Find("Canvas/WyborBroni").GetComponent<OdblokowaneBronie>().status();
 	}
 	/// <summary>
-	/// Funkcja, która kończy grę
+	/// Metoda, która kończy grę
 	/// </summary>
 	void gameOver()
 	{
 
 		Application.LoadLevel("gameOver");
 	}
+	/// <summary>
+	/// Metoda, która nadaje początkowe wartości zmiennym ruchu.
+	/// </summary>
+	private void startingStats()
+	{
+		stats.mouseSens = 1.0f;
+		stats.smooth_mouseSens = 10.0f;
+		stats.jumpForce = 2.5f;
+		stats.moveSpeed = 10.0f;
+		stats.runSpeed = 1.5f;
+		stats.maxJump = 1;
+		stats.maxDash = 1;
+		stats.dashForce = 0;
+		currentSpeed = stats.moveSpeed;
+		jumpCount = stats.maxJump;
+		dashCount = stats.maxDash;
+	}
+	/// <summary>
+	/// Metoda, która resetuje ilość dostępnych skoków
+	/// </summary>
+	private void resetJump()
+    {
+		Debug.Log(jumpCount);
+		jumpCount = stats.maxJump;
+	}
+	/// <summary>
+	/// Metoda, która resetuje ilość dostępnych dash'ów
+	/// </summary>
+	private void resetDash()
+    {
+		Debug.Log("reset dash");
+		dashCount = stats.maxDash;
+	}
+	/// <summary>
+	/// Metoda, która zmienia wartość jumped na true
+	/// </summary>
+	private void Jumped()
+    {
+		jumped = true;
+    }
 }

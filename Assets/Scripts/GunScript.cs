@@ -20,14 +20,14 @@ public class GunScript : MonoBehaviour
     public TMPro.TextMeshProUGUI ammoText;
 
     /// <summary>
-    /// Funkcja, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
+    /// Metoda, która wykonuje się w momencie gdy obiekt do którego podpięty jest skrypt został aktywowany.
     /// </summary>
     public void Start()
     {
         player2Script = player.GetComponent<Player2>();
     }
     /// <summary>
-	/// Funkcja, która wykonuje się co klatkę
+	/// Metoda, która wykonuje się co klatkę
 	/// </summary>
     void Update()
     {
@@ -47,7 +47,7 @@ public class GunScript : MonoBehaviour
         }
     }
     /// <summary>
-    /// Funkcja, która odpowiada za strzał z broni
+    /// Metoda, która odpowiada za strzał z broni
     /// </summary>
     void Shoot()
     {

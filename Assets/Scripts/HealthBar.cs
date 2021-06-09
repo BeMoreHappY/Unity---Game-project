@@ -10,7 +10,7 @@ public class HealthBar : MonoBehaviour
     // Start is called before the first frame update
     public Slider slider;
     /// <summary>
-    /// Funkcja, która ustawia pasek zdrowia na maksymalną wartość
+    /// Metoda, która ustawia pasek zdrowia na maksymalną wartość
     /// </summary>
     /// <param name="health">Przyjmuje wartość punktów zdrowia</param>
     public void MaxHealth(int health)
@@ -19,7 +19,7 @@ public class HealthBar : MonoBehaviour
         slider.value = health;
     }
     /// <summary>
-    /// Funkcja, która ustawia pasek zdrowia na konkretną wartość
+    /// Metoda, która ustawia pasek zdrowia na konkretną wartość
     /// </summary>
     /// <param name="health">Przyjmuje wartość punktów zdrowia</param>
     public void SetHealth(int health)

@@ -30,7 +30,7 @@ public class Spawner : MonoBehaviour
     /// </summary>
     void Start()
     {
-        points=0;
+        points=300;
         fala = 1;
         waveText.text = fala.ToString();
         spawn(0,1,0);

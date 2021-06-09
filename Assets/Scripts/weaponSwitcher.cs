@@ -10,7 +10,7 @@ public class weaponSwitcher : MonoBehaviour
     public int weaponSelect = 0;
     public GameObject[] weapon;
     /// <summary>
-    /// Funkcja, która aktywuje lub dezaktywuje broń
+    /// Metoda, która aktywuje lub dezaktywuje broń
     /// </summary>
     /// <param name="idWeapon">Przyjmuje ID broni</param>
     public void SwitchWeapon(int idWeapon)

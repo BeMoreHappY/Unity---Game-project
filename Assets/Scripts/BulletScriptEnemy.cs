@@ -12,14 +12,14 @@ public class BulletScriptEnemy : MonoBehaviour
     // Start is called before the first frame update
     public int damage = 5;
     /// <summary>
-	/// Funkcja, która wykonuje się co klatkę
+	/// Metoda, która wykonuje się co klatkę
 	/// </summary>
     void Update()
     {
         Destroy(this.gameObject, 5);
     }
     /// <summary>
-    /// Funkcja, która sprawdza czy obiekt zderzył się z innym obiektem
+    /// Metoda, która sprawdza czy obiekt zderzył się z innym obiektem
     /// </summary>
     /// <param name="Enemy">Przyjmuje collider obiektu</param>
     void OnTriggerEnter(Collider Enemy){

@@ -9,14 +9,14 @@ public class OdblokowaneBronie : MonoBehaviour
 {
     Button[] buttons;
     /// <summary>
-    /// Funkcja, która wykonuje się w momencie załadowania sceny z danym obiektem
+    /// Metoda, która wykonuje się w momencie załadowania sceny z danym obiektem
     /// </summary>
     void Awake()
     {
         buttons = this.GetComponentsInChildren<Button>(true);
     }
     /// <summary>
-    /// Funkcja, która odblokowuje broń
+    /// Metoda, która odblokowuje broń
     /// </summary>
     /// <param name="id">ID broni do odblokowania</param>
     public void odblokuj(int id)
@@ -24,7 +24,7 @@ public class OdblokowaneBronie : MonoBehaviour
         buttons[id].interactable = true;
     }
     /// <summary>
-    /// Funkcja, która blokuje broń
+    /// Metoda, która blokuje broń
     /// </summary>
     /// <param name="id">ID broni do zablokowania</param>
     public void zablokuj(int id)
@@ -32,7 +32,7 @@ public class OdblokowaneBronie : MonoBehaviour
         buttons[id].interactable = false;
     }
     /// <summary>
-    /// Funkcja, która zwraca status broni (aktywna lub nie)
+    /// Metoda, która zwraca status broni (aktywna lub nie)
     /// </summary>
     /// <returns>Zwraca tablicę bool wszystkich broni</returns>
     public bool[] status()
